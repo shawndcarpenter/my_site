@@ -6,11 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= stylesheet_link_tag "application.bootstrap", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application.bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%= javascript_include_tag "timeFilter", 'data-turbolinks-track': 'reload'  %>
+    <%= render partial: 'shared/navbar' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= yield %>
   </body>
 </html>
