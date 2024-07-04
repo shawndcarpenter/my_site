@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @experience_point %>
+
+<div>
+  <%= link_to "Edit this experience point", edit_experience_point_path(@experience_point) %> |
+  <%= link_to "Back to experience points", experience_points_path %>
+
+  <%= button_to "Destroy this experience point", @experience_point, method: :delete %>
+</div>
