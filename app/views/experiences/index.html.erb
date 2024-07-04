@@ -1,14 +1,96 @@
-<p style="color: green"><%= notice %></p>
+<%= render partial: 'shared/filter' %>
+<%= render partial: 'shared/navbar' %>
 
-<h1>Experiences</h1>
+<!DOCTYPE html>
+<head>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let hourElement = document.getElementById('hour');
+      hourElement.addEventListener('click', function() {
+        let date = new Date();
+        let hour = date.getHours();
+        let brightnessLevel;
+        if (hour < 12 && hour > 3) {
+          brightnessLevel = (0.1 * (hour - 2)).toFixed(1);
+        } else if (hour > 12 && hour < 21) {
+          brightnessLevel = (0.1 * (22 - hour)).toFixed(1);
+        } else {
+          brightnessLevel = 0.1;
+        }
 
-<div id="experiences">
-  <% @experiences.each do |experience| %>
-    <%= render experience %>
-    <p>
-      <%= link_to "Show this experience", experience %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New experience", new_experience_path %>
+        document.getElementById("hour").textContent = "Time-based theme selected: " + date.toLocaleTimeString();
+        document.querySelector(".background-pages").style.filter = `brightness(${brightnessLevel})`;
+        document.querySelector(".background-pages").style.webkitFilter = `brightness(${brightnessLevel})`;
+        });
+      });
+  </script>
+</head>
+<html lang="en">
+  <body class="body">
+    <div class="all-content">
+      <div class="background-pages"></div>
+      <div class="items">
+       <br>
+        <br>
+        <h1 class="heading">  $ /EXPERIENCE</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+              <%= image_tag("card_passenger.png", class: "card-img-top", alt: "passenger recovery logo") %>
+                <div class="card-body">
+                  <h5 class="subheader"><b>Data Entry and Outreach Volunteer</b></h5>
+                  <p class="card-text">Passenger Recovery, Detroit, MI.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><i>Added resources local to users to website providing aid for touring musicians in recovery</i></li>
+                  <li class="list-group-item"><i>Expanded the database of international recovery meetings on the meeting finder web application by over 1000 entries</i></li>
+                </ul>
+                <div class="card-body">
+                  <a href="https://passengerrecovery.com/" class="card-link">Passenger Recovery</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+              <%= image_tag("card_hmc.svg", class: "card-img-top", alt: "haymarket center logo") %>
+                <div class="card-body">
+                  <h5 class="subheader"><b>Certified Alcohol and Drug Counselor Internship Program</b></h5>
+                  <p class="card-text">Haymarket Center, Chicago, IL.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><i>Provided counseling to women with a history of substance abuse and connected them to external resources</i></li>
+                  <li class="list-group-item"><i>Generated comprehensive session (SOAP) notes utilized by clinicians, supervisors, and insurance providers to enhance the delivery and cohesiveness of counseling services</i></li>
+                  <li class="list-group-item"><i>De-escalated high-stress situations to maintain a supportive and safe environment for clients and staff</i></li>
+                </ul>
+                <div class="card-body">
+                  <a href="https://www.hcenter.org/" class="card-link">Haymarket Center</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+              <%= image_tag("card_mbv.webp", class: "card-img-top", alt: "healthy mind body voice logo") %>
+                <div class="card-body">
+                  <h5 class="subheader"><b>Project Leader</b></h5>
+                  <p class="card-text">CU Boulder Prevention Science Internship Program, Boulder, CO.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><i>Overhauled program on body image to cater to a transgender population, holding interviews and focus groups</i></li>
+                  <li class="list-group-item"><i>Analyzed data and delivered comprehensive presentations of findings to the University of Colorado Psychology Department staff</i></li>
+                </ul>
+                <div class="card-body">
+                  <a href="https://www.colorado.edu/crowninstitute/mind-body-voice-0" class="card-link">Healthy Mind Body Voice</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

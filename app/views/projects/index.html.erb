@@ -1,14 +1,80 @@
-<p style="color: green"><%= notice %></p>
+<%= render partial: 'shared/filter' %>
+<%= render partial: 'shared/navbar' %>
 
-<h1>Projects</h1>
-
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New project", new_project_path %>
+<html lang="en">
+<body>
+  <div class="all-content">
+    <div class="background-pages"></div>
+    <div class="items">
+      <br>
+      <br>
+      <h1 class="heading">  $ /PORTFOLIO</h1> 
+      <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                <%= image_tag("card_third_space.svg", class: "card-img-top", alt: "third space logo") %>
+                <div class="card-body">
+                  <h5 class="subheader"><b>Third Space</b></h5>
+                  <p class="card-text">Group Project</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Application allows users to find and create third spaces: location data with information regarding mood, accessibility and inclusion data for a space</li>
+                  <li class="list-group-item"><i>Implemented a service-oriented architecture to enhance flexibility, scalability, and interoperability, dividing the system into two components: a backend API-only service responsible for database operations, and a frontend Rails application managing user data, authentication, authorization, location services, and the user interface</i></li>
+                  <li class="list-group-item"><i>Implemented SendGrid and OAuth2 to increase user data security and provide alternative login options</i></li>
+                  <li class="list-group-item"><b>Tech:</b> Ruby, Rails, ActiveRecord, SQL, CSS, HTML, BootStrap, API, SendGrid, Google OAuth2, DigitalOcean</li>
+                </ul>
+                <div class="card-body">
+                  <a href="https://github.com/shawndcarpenter/third_space_be" class="card-link">Back-End Repo</a>
+                  <a href="https://github.com/shawndcarpenter/third_space_fe" class="card-link">Front-End Repo</a>
+                  <a href="https://www.youtube.com/watch?v=Ak80_uFdN3Q" class="card-link">Video Demonstration</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                <%= image_tag("card_doughfin.svg", class: "card-img-top", alt: "doughfin logo") %>
+                <div class="card-body">
+                  <h5 class="subheader"><b>DoughFin</b></h5>
+                  <p class="card-text">Group Project</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Financial application which enables users to create customizable budgets which dynamically update upon creation of incomes and expenses and provide monthly analytics for expenditure data</li>
+                  <li class="list-group-item"><i>Developed a comprehensive Postman load testing suite to investigate the application performance and scalability</i></li>
+                  <li class="list-group-item"><i>Implemented search functionality, loading state and Cypress testing within our React front-end application to aid our full-stack team in meeting its deadline</i></li>
+                  <li class="list-group-item"><b>Tech:</b> Ruby, Rails, ActiveRecord, APIs, GraphQL, React, Apollo Client, Cypress</li>
+                </ul>
+                <div class="card-body">
+                  <a href="https://github.com/DoughFin/DoughFin_BE" class="card-link">Back-End Repo</a>
+                  <a href="https://github.com/DoughFin/DoughFin_FE" class="card-link">Front-End Repo</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+              <%= image_tag("card_sw.png", class: "card-img-top", alt: "sweater weather endpoint example") %>
+                <div class="card-body">
+                  <h5 class="subheader"><b>Sweater Weather</b></h5>
+                  <p class="card-text">Solo Project</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">JSON:API-compliant RESTful API providing current, hourly, and daily weather data accessible via a unique API key through endpoints such as /forecast for single location queries or /road_trip for estimated time of arrival weather forecasts along a route</li>
+                  <li class="list-group-item"><i>incorporated user-friendly error handling, RSpec object-oriented testing, and a comprehensive POSTMAN JavaScript endpoint test suite</i></li>
+                  <li class="list-group-item"><i>Interfaced with multiple external APIs to obtain current and relevant location and weather data</i></li>
+                  <li class="list-group-item"><b>Tech:</b>SQL, APIs, REST, ActiveRecord, Git, GitHub, Ruby on Rails</li>
+                </ul>
+                <div class="card-body">
+                  <a href="https://github.com/shawndcarpenter/sweater_weather" class="card-link">API Repository</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </body>
+</html>
