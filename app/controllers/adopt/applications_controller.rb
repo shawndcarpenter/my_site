@@ -1,4 +1,4 @@
-class ApplicationsController < ApplicationController
+class Adopt::ApplicationsController < ApplicationController
   def new
   end
   

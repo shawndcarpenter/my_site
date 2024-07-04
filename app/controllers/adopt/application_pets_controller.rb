@@ -1,4 +1,4 @@
-class ApplicationPetsController < ApplicationController
+class Adopt::ApplicationPetsController < ApplicationController
   def update
     application = Application.find(params[:id])
     selected_app_pet = ApplicationPet.find(params[:pet_id])
