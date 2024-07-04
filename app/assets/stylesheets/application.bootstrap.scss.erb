@@ -1,0 +1,94 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+ .navbar .search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  background-color: #494E6B;
+}
+
+.skills {
+  padding: 50px 50px 25px 100px;
+  background-color: rgba(202, 185, 193, 0.5);
+  columns: 100px 5;
+  border-radius: 25px;
+  font-weight: bold;
+   }
+
+.heading {
+  padding: 50px 50px 25px 50px;
+  text-align: left;
+  color: #FFBDCE;
+  font-family: "Monaco", Helvetica, sans-serif;
+}
+
+.title {
+  font-family: "copperplate", Helvetica, sans-serif;
+}
+
+.summary-container {
+padding: 25px 50px 25px 50px;
+background-color: rgba(202, 185, 193, 0.5);
+border-radius: 25px;
+}
+.summary {
+  font-family: "Courier New", Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.card-img-top {
+padding: 25px 50px 25px 50px;
+border-radius: 25px;
+}
+
+.subheader {
+font-family: 'Georgia', sans-serif;
+}
+
+.profile-img {
+max-width: 20%;
+height: auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.all-content {
+position: relative;
+overflow: hidden;
+}
+
+.background {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: url('<%= asset_path("bg.png") %>') no-repeat center center;
+background-size: cover;
+filter: brightness(0.70) blur(10px);
+z-index: 1;
+}
+
+.background-pages {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: url('<%= asset_path("bg.png") %>') no-repeat center center;
+background-size: cover;
+/* filter: brightness(0.40); */
+z-index: 1;
+}
+
+.items {
+position: relative;
+z-index: 2;
+}
