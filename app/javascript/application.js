@@ -3,3 +3,4 @@ import "@hotwired/turbo-rails"
 import "popper"
 import "controllers"
 import "bootstrap"
+// = require_tree .

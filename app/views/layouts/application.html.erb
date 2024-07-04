@@ -8,12 +8,13 @@
 
     <%= stylesheet_link_tag "application.bootstrap", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-     
     <%= stylesheet_link_tag 'application.bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= javascript_include_tag "timeFilter", 'data-turbolinks-track': 'reload'  %>
+    <%= render partial: 'shared/navbar' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield %>
   </body>
 </html>
