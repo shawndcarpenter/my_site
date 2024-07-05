@@ -1,0 +1,8 @@
+<%= render partial: '/adopt/shared/header' %>
+<div class="adopt-header" >
+  <h1>Edit Shelter</h1>
+</div>
+
+<div class="adopt-body" >
+<%= render partial: 'form', locals: { path: "/adopt/shelters/#{@shelter.id}", method: :patch, button_text: "Save"} %>
+</div>

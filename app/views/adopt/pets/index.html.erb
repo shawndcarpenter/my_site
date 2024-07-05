@@ -1,0 +1,19 @@
+<%= render partial: '/adopt/shared/header' %>
+<%= link_to "Start An Application", "/adopt/applications/new" %>
+
+<div class="adopt-header" >
+  <h1>All Pets</h1>
+  <%= render partial: 'adopt/shared/search', locals: { path: "/adopt/pets" } %>
+</div>
+
+<% @pets.each do |pet| %>
+  <div class="adopt-body" >
+    <h3><%= pet.name %></h3>
+    <p>Age: <%= pet.age %></p>
+    <p>Breed: <%= pet.breed %></p>
+    <p>Adoptable: <%= pet.adoptable %></p>
+    <p>You can find <%= pet.name %> at <%= pet.shelter_name %>!</p>
+    <%= link_to "Edit #{pet.name}", "/adopt/pets/#{pet.id}/edit" %>
+    <%= link_to "Delete #{pet.name}", "/adopt/pets/#{pet.id}", method: :delete %>
+  </div>
+<% end %>
