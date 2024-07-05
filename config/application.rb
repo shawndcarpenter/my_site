@@ -24,6 +24,7 @@ module MySite
     config.load_defaults 7.1
 
     config.autoload_paths += %W(app/models/adopt)
+    config.autoload_paths += %W(app/models/viewparty)
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
