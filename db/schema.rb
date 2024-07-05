@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_221044) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_05_024032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_221044) do
     t.string "company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.string "movie_title"
+    t.integer "duration"
+    t.date "day"
+    t.time "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "movie_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -144,6 +154,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_221044) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "viewer_parties", force: :cascade do |t|
+    t.bigint "viewer_id", null: false
+    t.bigint "party_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "host", default: true
+    t.integer "host_id"
+    t.index ["party_id"], name: "index_viewer_parties_on_party_id"
+    t.index ["viewer_id"], name: "index_viewer_parties_on_viewer_id"
+  end
+
+  create_table "viewers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+  end
+
   add_foreign_key "application_pets", "applications"
   add_foreign_key "application_pets", "pets"
   add_foreign_key "education_points", "educations"
@@ -153,4 +182,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_221044) do
   add_foreign_key "project_skills", "projects"
   add_foreign_key "project_skills", "skills"
   add_foreign_key "veterinarians", "veterinary_offices"
+  add_foreign_key "viewer_parties", "parties"
+  add_foreign_key "viewer_parties", "viewers"
 end
