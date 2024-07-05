@@ -1,11 +1,11 @@
-class LocationsController < ApplicationController
+class Thirdspace::LocationsController < ApplicationController
   
   def search
   end
   
   def index
     if params[:name].empty? || params[:city].empty?
-      redirect_to locations_search_path
+      redirect_to thirdspace_locations_search_path
       flash[:alert] = "Please fill in search bars with the name of a location and city where this location is located. (Example: name: Starbucks, city: Boulder)"
     else
     @third_space_yelp_ids = third_space_yelp_ids
@@ -41,7 +41,7 @@ class LocationsController < ApplicationController
   end
 
   def find_locations
-    conn = Faraday.new(url: "https://third-space-fe-uskie.ondigitalocean.app/third-space-be") do |faraday| 
+    conn = Faraday.new(url: "http://localhost:3000") do |faraday| 
       faraday.params["name"] = params[:name]
       faraday.params["city"] = params[:city]
     end
@@ -56,7 +56,7 @@ class LocationsController < ApplicationController
 
   def find_show_details
     location_id = params[:id]
-    conn = Faraday.new(url: "https://third-space-fe-uskie.ondigitalocean.app/third-space-be")
+    conn = Faraday.new(url: "http://localhost:3000")
     response = conn.get("api/v1/locations/#{location_id}")
     # require 'pry'; binding.pry
     json = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]

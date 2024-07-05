@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class Thirdspace::HomeController < ApplicationController
   def index
     
   end

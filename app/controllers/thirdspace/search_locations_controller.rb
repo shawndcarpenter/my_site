@@ -1,41 +1,44 @@
-class SearchLocationsController < ApplicationController
+class Thirdspace::SearchLocationsController < ApplicationController
   def create
+    current_user = User.first
     if (params["city"].present? && params["state"].present?)
       search_location = current_user.build_search_location(city: params["city"].titleize, state: params["state"])
       search_location.save
-      redirect_to search_locations_set_mood_path
+      redirect_to thirdspace_search_locations_set_mood_path
     elsif params[:geo]
       geolocation = geocode_location(session[:lat], session[:lon])
       geo_hash = geolocation_parse(geolocation)
       search_location = current_user.build_search_location(geo_hash)
       search_location.save
-      redirect_to search_locations_set_mood_path
+      redirect_to thirdspace_search_locations_set_mood_path
     elsif (session[:lat].nil? || session[:lon].nil?)
       flash[:error] = "Error fetching location. Please make sure you have granted permission to access your location."
-      redirect_to set_location_path
+      redirect_to thirdspace_set_location_path
     else
       update_search_location
     end
   end
 
   def update_search_location
+    current_user = User.first
     if params[:city] && params[:state]
       current_user.search_location.update(city: search_params[:city].titleize, state: search_params[:state])
-      redirect_to dashboard_path
+      redirect_to thirdspace_dashboard_path
     elsif (session[:lat].nil? || session[:lon].nil?)
       flash[:error] = "Error fetching location. Please make sure you have granted permission to access your location."
-      redirect_to set_location_path
+      redirect_to thirdspace_set_location_path
     else params[:geo] && session[:lat] && session[:lon]
       geolocation = geocode_location(session[:lat], session[:lon])
       geo_hash = geolocation_parse(geolocation)
       search_location = current_user.search_location.update(geo_hash)
-      redirect_to dashboard_path
+      redirect_to thirdspace_dashboard_path
     end
   end
 
   def update
+    current_user = User.first
     current_user.search_location.update(mood: params[:mood])
-    redirect_to dashboard_path
+    redirect_to thirdspace_dashboard_path
   end
   
   private

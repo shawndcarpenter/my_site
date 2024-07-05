@@ -1,4 +1,4 @@
-class SavedLocationsController < ApplicationController
+class Thirdspace::SavedLocationsController < ApplicationController
   def index
     
   end

@@ -1,6 +1,6 @@
-class ContactsController < ApplicationController
+class Thirdspace::ContactsController < ApplicationController
   def new
-    @contact = Contact.new 
+    @contact = Contact.new
   end
 
   def create
@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       flash[:notice] = 'Your message has been submitted successfully'
-      redirect_to dashboard_path
+      redirect_to thirdspace_dashboard_path
     else
       flash[:alert] = 'There was an error submitting your message. Please try again.'
       render :new

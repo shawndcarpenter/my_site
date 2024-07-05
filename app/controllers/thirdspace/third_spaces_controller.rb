@@ -1,6 +1,6 @@
 require 'date'
 
-class ThirdSpacesController < ApplicationController
+class Thirdspace::ThirdSpacesController < ApplicationController
 
   def new
     @json = params[:location_json]
@@ -14,7 +14,7 @@ class ThirdSpacesController < ApplicationController
 
     CreateThirdSpaceFacade.new(location, tags).space
     
-    redirect_to dashboard_path
+    redirect_to thirdspace_dashboard_path
   end
 
   def edit
@@ -32,7 +32,7 @@ class ThirdSpacesController < ApplicationController
     tags = params[:tags]
     @space = UpdateSpaceTagsFacade.new(yelp_id, tags).space
 
-    redirect_to third_space_path(@space.yelp_id)
+    redirect_to thirdspace_third_space_path(@space.yelp_id)
   end
 
   def add_review
@@ -49,7 +49,7 @@ class ThirdSpacesController < ApplicationController
     date = Date.today.strftime("%Y-%m-%d")
     review_poro = ReviewPoro.new(name: name, text: params[:text], rating: params[:rating], date: date, yelp_id: yelp_id)
     @review = CreateSpaceReviewsFacade.new(review_poro).new_review
-    redirect_to "/third_spaces/#{yelp_id}"
+    redirect_to "/thirdspace/third_spaces/#{yelp_id}"
     flash[:success] = "Review created successfully!"
   end
 
@@ -154,7 +154,7 @@ class ThirdSpacesController < ApplicationController
     def destroy
       yelp_id = params[:id]
       DestroyThirdSpaceFacade.new(yelp_id).destroyed
-      redirect_to dashboard_path
+      redirect_to thirdspace_dashboard_path
     end
   end
   
@@ -340,7 +340,7 @@ class ThirdSpacesController < ApplicationController
   end
 
   def find_third_space(yelp_id)
-    conn = Faraday.new(url: "https://third-space-fe-uskie.ondigitalocean.app/third-space-be")
+    conn = Faraday.new(url: "localhost:3000/")
     response = conn.get("api/v1/third_spaces/#{yelp_id}")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
     ThirdSpacePoro.new(data[:attributes])

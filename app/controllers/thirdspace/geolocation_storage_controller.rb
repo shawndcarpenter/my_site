@@ -1,4 +1,4 @@
-class GeolocationStorageController < ApplicationController
+class Thirdspace::GeolocationStorageController < ApplicationController
   protect_from_forgery with: :null_session
 
   def lat_lon_session

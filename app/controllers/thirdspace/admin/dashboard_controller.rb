@@ -1,4 +1,4 @@
-class Admin::DashboardController < ApplicationController
+class Thirdspace::Admin::DashboardController < ApplicationController
   before_action :require_admin
 
   def index
