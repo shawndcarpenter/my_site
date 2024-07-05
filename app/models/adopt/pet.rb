@@ -1,4 +1,4 @@
-class Adopt::Pet < ApplicationRecord
+class Pet < ApplicationRecord
   validates :name, presence: true, uniqueness: {case_sensitive: false}
   validates :age, presence: true, numericality: true
   belongs_to :shelter
