@@ -11,12 +11,12 @@
   </style>
 </head>
 <body>
-
+<br><br><br>
 <nav class="navbar navbar-light bg-light" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
   <div class="container-fluid d-flex align-items-center">
 
     <!-- Logo -->
-    <a class="navbar-brand my-auto" href="<%= dashboard_path %>" style="margin-right: 2rem;">
+    <a class="navbar-brand my-auto" href="<%= thirdspace_dashboard_path %>" style="margin-right: 2rem;">
       <%= image_tag 'temp_logo.svg', style: "width: 200px; height: auto;", alt: "Logo" %> 
     </a>
 
@@ -83,11 +83,11 @@
       </div>
 
     <div class="ml-auto">
-      <% if current_user.search_location.present? %>
-        <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content; display: flex; align-items: center; margin-right: 10px; margin-left: 10px;">
+      <% if @user.search_location.present? %>
+        <a class="btn btn-secondary p-2" href="<%= thirdspace_set_location_path %>" style="height: fit-content; display: flex; align-items: center; margin-right: 10px; margin-left: 10px;">
           <span class="img-btn-wrapper">
             <%= image_tag 'location.svg', alt: "Location", style: "margin-right: 5px;" %> 
-            <%= current_user.search_location.city %>, <%= current_user.search_location.state %>
+            <%= @user.search_location.city %>, <%= @user.search_location.state %>
           </span>
         </a>
       <% end %>
@@ -95,7 +95,7 @@
 
     <div class="ml-auto dropdown me-3">
       <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= current_user.search_location.mood %> 
+        <%= @user.search_location.mood %> 
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item', method: :patch %></li>
@@ -114,10 +114,10 @@
 
     <div class="ml-auto collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item <%= 'active-nav-item' if current_page?(dashboard_path) %>"><%= link_to 'dashboard', dashboard_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'privacy & security', privacy_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'create a third space', locations_search_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'log out', logout_path, class: 'nav-link' %></li>
+        <li class="nav-item <%= 'active-nav-item' if current_page?(thirdspace_dashboard_path) %>"><%= link_to 'dashboard', thirdspace_dashboard_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'privacy & security', thirdspace_privacy_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'create a third space', thirdspace_locations_search_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'log out', thirdspace_logout_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'contact us', new_contact_form_path, class: 'nav-link' %></li>
       </ul>
     </div>

@@ -3,7 +3,7 @@
   <body>
     <div class="container mt-5">
       <div class="row justify-content-center mt-4">
-        <%= render partial: 'shared/navbar' %>
+        <%= render partial: 'thirdspace/shared/navbar' %>
 
         <div class="container-fluid">
           <h3 class="text-center my-4">locations.</h3>
@@ -22,7 +22,7 @@
                       <button class="small-default-button me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Update Third Space</button>
                   </form>
                 <% else %>
-                  <h3 class="space-link text-center"><%= link_to location.name, location_path(location.id), class: "space-link" %></h3>
+                  <h3 class="space-link text-center"><%= link_to location.name, thirdspace_location_path(location.id), class: "space-link" %></h3>
                   <p class="fs-6 text-center text-wrap"><%= location.address %></p>
                   <p class="fs-6 text-center text-wrap"><%= location.category %></p>
                 <% end %>

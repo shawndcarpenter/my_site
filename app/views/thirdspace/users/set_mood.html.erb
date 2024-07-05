@@ -3,12 +3,12 @@
     <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
       <div class="text-center">
         <div class="mb-3">
-          <%= link_to dashboard_path do %>
+          <%= link_to thirdspace_dashboard_path do %>
             <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
           <% end %>
         </div>
         <div class="container text-center">
-            <%= form_with url: update_search_location_path, method: :patch, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+            <%= form_with url: update_search_thirdspace_location_path, method: :patch, local: true, html: { class: 'form-floating mb-3' } do |form| %>
               <h4>What is your mood today?</h4>
               <div class="btn-group" role="group" aria-label="mood button group">
                 <%= button_tag type: 'submit', name: 'mood', value: 'Happy', class: 'btn btn-outline-primary mood-button', style: "border-radius: 20px;", id: 'btncheck1' do %>

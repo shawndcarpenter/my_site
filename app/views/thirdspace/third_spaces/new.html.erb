@@ -1,13 +1,13 @@
 <body style="background-color: #D0D19F; font-size: 20px;">
 <div class="container mt-5">
   <div class="row justify-content-center mt-4">
-    <%= render partial: 'shared/navbar' %>
+    <%= render partial: 'thirdspace/shared/navbar' %>
   </div>
 
   <div class="container text-center mt-5">
     <div class="mb-3">
       <h2><b>Create a New Third Space</b></h2><br>
-      <%= form_tag(create_third_space_third_spaces_path, method: "get") do %>
+      <%= form_tag(create_third_space_thirdspace_third_spaces_path, method: "get") do %>
       <div class="mb-3 d-flex justify-content-start">
         <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
           <label class="form-label" for="name">Name</label>

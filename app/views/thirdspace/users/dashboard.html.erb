@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div class="row justify-content-center mt-4">
-    <%= render partial: 'shared/navbar' %>
+    <%= render partial: 'thirdspace/shared/navbar' %>
 
   <div class="col mx-auto px-3">
     <h3><%= link_to 'recommendations by mood.', mood_recommendations_path(@user.id), class: 'dash-header' %></h3>
@@ -10,7 +10,7 @@
           <% @mood_recs.each do |third_space_poro| %>
             <div class="text-center rounded-entry me-5" style="display: flex; flex-direction: column; align-items: center;">
               <h3 class="space-link">
-                <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
+                <%= link_to thirdspace_third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
                   <%= third_space_poro.name %>
                 <% end %>
               </h3>
@@ -38,7 +38,7 @@
           <% end %>
         <% else %>
           <p>No Third Spaces of that Mood near you.</p>
-          <br><p><%= link_to "Add a location", locations_search_path %>.</p>
+          <br><p><%= link_to "Add a location", thirdspace_locations_search_path %>.</p>
         <% end %>
       </div>
     </div>
@@ -51,7 +51,7 @@
           <% @location_recs.each do |third_space_poro| %>
             <div class="text-center rounded-entry me-5">
               <h3 class="space-link">
-                <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
+                <%= link_to thirdspace_third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
                   <%= third_space_poro.name %>
                 <% end %>
               </h3>
@@ -79,7 +79,7 @@
           <% end %>
 
         <% else %>
-          No Third Spaces near you. <%= link_to "Add a location", locations_search_path %>.
+          No Third Spaces near you. <%= link_to "Add a location", thirdspace_locations_search_path %>.
         <% end %>
       </div>
     </div>
@@ -91,7 +91,7 @@
         <% @saved.each do |third_space_poro| %> 
           <div class="rounded-entry me-5 text-center">
               <h3 class="space-link">
-                <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
+                <%= link_to thirdspace_third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
                   <%= third_space_poro.name %>
                 <% end %>
               </h3>

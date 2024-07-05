@@ -5,7 +5,7 @@
         <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
       </div>
       
-      <%= form_with url: login_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+      <%= form_with url: thirdspace_login_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
         <div class="form-floating mb-3">
             <%= form.text_field :email, id: 'floatingInputEmail', class: "form-control", placeholder: "email", required: true %>
             <%= form.label :email, "email", for: 'floatingInputEmail', class: "form-label" %>
@@ -20,12 +20,12 @@
 
         <div class="mb-3">
           <%= form.submit "log in", class: "initial-button" %>
-          <a href="/register" class="initial-button">new user</a>
+          <a href="/thirdspace/register" class="initial-button">new user</a>
         </div>
       <% end %>
 
       <div style="margin-top: 15px;">
-        <%= button_to '/auth/google_oauth2', class: "google-sign-in-btn gsi-material-button", data: { turbo: false }, id: "google-sign-in-btn", form_class: "google-auth-form" do %>
+        <%= button_to '/thirdspace/auth/google_oauth2', class: "google-sign-in-btn gsi-material-button", data: { turbo: false }, id: "google-sign-in-btn", form_class: "google-auth-form" do %>
           <div class="gsi-material-button-content-wrapper">
             <div class="gsi-material-button-icon">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
@@ -43,7 +43,7 @@
 
       <br>
       <div class="mb-3">
-        <%= link_to "Forgot your password?", password_reset_path, class: "forgot-link" %>
+        <%= link_to "Forgot your password?", thirdspace_password_reset_path, class: "forgot-link" %>
       </div>
     </div>
   </div>
