@@ -1,0 +1,52 @@
+<html lang="en">
+  <body>
+    <div class="all-content">
+      <div class="background-pages"></div>
+        <div class="items">
+        <br>
+        <br>
+        <h1 class="heading">  $ /THIRDSPACE</h1> 
+        <div class="container">
+          <div class="card" style="max-width: 50rem;">
+          <%= image_tag("third_space_login.png", class: "card-img-top", alt: "third space logo") %>
+            <div class="card-body">
+              <h5 class="subheader"><b>Disclaimer</b></h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Third Space was a project whose best attributes included in-depth security protocols, including: 
+                  <ul>
+                    <% ["Google OAuth", "password encryption", "OTP generation", "password recovery"].each do |item| %>
+                        <li><%= item %></li>
+                    <% end %>                  
+                  </ul>
+                  In an aim to make this application accessible to visitors, many of these features have been stripped away. Much of the internal functionality of viewing, favoriting, updating and creating third spaces should all work as intended. The following options are available to experience the website:
+                  <ul>
+                    <li><a href="https://www.youtube.com/watch?v=Ak80_uFdN3Q" class="card-link">View a demo of Third Space with functional security protocols</a></li>
+                    <li><%= link_to "User Mode (all functions minus login/sessions)", thirdspace_dashboard_path  %></li>
+                    <li><%= link_to "Admin Mode (comments/users view only)", thirdspace_admin_dashboard_path  %></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <h5 class="subheader"><b>Acknowledgements</b></h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  This was a group project. It had a lot of moving pieces that would not have been possible without the help of my team members. The project concept was pitched by me and I did most of the work on the back-end API and front-end request/response logic and parsing as well as the work that went into porting this application to this website. Most of the design/security was handled by the other members on this team. Also shoutout to Anthea, who not only did a lot of styling but also edited together an amazing video for Demo Comp (linked above).
+                </li>
+                <li class="list-group-item">
+                  <%= link_to "Staff Contact Information", "https://github.com/shawndcarpenter/third_space_fe#staff"  %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </body>
+</html>
+
+    

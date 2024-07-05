@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   get "/experience", to: "experiences#index"
   get "/portfolio", to: "projects#index"
   get "/adopt", to: "projects#adopt"
+  get "/thirdspace", to: "projects#thirdspace"
   # Defines the root path route ("/")
   # root "posts#index"
 
