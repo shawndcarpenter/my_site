@@ -4,6 +4,7 @@ class Thirdspace::LocationsController < ApplicationController
   end
   
   def index
+    @user = current_user
     if params[:name].empty? || params[:city].empty?
       redirect_to thirdspace_locations_search_path
       flash[:alert] = "Please fill in search bars with the name of a location and city where this location is located. (Example: name: Starbucks, city: Boulder)"
@@ -16,6 +17,7 @@ class Thirdspace::LocationsController < ApplicationController
   end
   
   def show
+    @user = current_user
     location_id = params[:id]
     @location = LocationFacade.new(location_id).location
     @location_json = @location.to_json

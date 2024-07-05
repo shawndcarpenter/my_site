@@ -3,12 +3,14 @@ require 'date'
 class Thirdspace::ThirdSpacesController < ApplicationController
 
   def new
+    @user = current_user
     @json = params[:location_json]
     json_parse = JSON.parse(params[:location_json], symbolize_names: true)
     @location = DetailedLocation.new(json_parse)
   end
   
   def create_third_space
+    @user = current_user
     location = JSON.parse(params[:location_json], symbolize_names: true)
     tags = params[:tags]
 
