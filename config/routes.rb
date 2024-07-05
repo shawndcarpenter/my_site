@@ -6,7 +6,29 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # all adopt routes:
+  # viewparty routes ##############################################
+  get '/viewparty', to: 'viewparty/landing#index'
+  get '/viewparty/register', to: 'viewparty/viewers#new', as: 'register'
+  post '/viewparty/register', to: 'viewparty/viewers#create'
+
+  get 'viewparty/login', to: 'sessions#new'
+  post 'viewparty/login', to: 'sessions#create'
+  get 'viewparty/logout', to: 'sessions#destroy'
+
+  namespace :viewparty do
+    resources :viewers, only: [:index, :create, :new, :show] do
+      resources :viewer_parties, only: :index, path: 'discover', as: 'discover'
+      resources :dashboard, only: :show, path: 'dashboard', as: 'dashboard'
+      
+      resources :movies, only: :index, as: 'results'
+      resources :movies, only: :show do
+        resources :viewer_parties, only: [:new, :create], path: 'viewing_party', as: 'viewing_party'
+      end
+    end
+  end
+
+
+  # all adopt routes ##############################################
   namespace :adopt do
     resources :applications, except: :destroy
     resources :shelters
@@ -20,6 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   get "/adopt/shelters/:shelter_id/pets", to: "adopt/shelters#pets"
   get "/adopt/shelters/:shelter_id/pets/new", to: "adopt/pets#new"
   post "/adopt/shelters/:shelter_id/pets", to: "adopt/pets#create"
@@ -31,15 +54,9 @@ Rails.application.routes.draw do
   get "/adopt/admin/shelters", to: "adopt/admin/shelters#index"
   patch "/adopt/application_pets/:pet_id", to: "adopt/application_pets#update"
   get "/adopt/admin/shelters/:id", to: "adopt/admin/shelters#show"
-  # resources :project_skills
-  # resources :skills
-  # resources :education_points
-  # resources :experience_points
-  # resources :project_points
-  # resources :projects
-  # resources :experiences
-  # resources :educations
 
+  
+  # main pages ####################################################
   get "/education", to: "educations#index"
   get "/experience", to: "experiences#index"
   get "/portfolio", to: "projects#index"
