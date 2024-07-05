@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_05_024032) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_05_051629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_024032) do
     t.string "zip_code"
     t.string "description"
     t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "subject"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -121,6 +128,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_024032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "search_locations", force: :cascade do |t|
+    t.string "city"
+    t.string "state"
+    t.string "address"
+    t.string "mood"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_search_locations_on_user_id"
+  end
+
   create_table "shelters", force: :cascade do |t|
     t.boolean "foster_program"
     t.string "name"
@@ -132,6 +150,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_024032) do
 
   create_table "skills", force: :cascade do |t|
     t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "role", default: 0
+    t.string "password_digest"
+    t.string "password_confirmation"
+    t.string "otp_secret_key"
+    t.integer "otp_code_attempts"
+    t.datetime "otp_code_expires_at"
+    t.string "otp_code"
+    t.boolean "provider", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -181,6 +215,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_024032) do
   add_foreign_key "project_points", "projects"
   add_foreign_key "project_skills", "projects"
   add_foreign_key "project_skills", "skills"
+  add_foreign_key "search_locations", "users"
   add_foreign_key "veterinarians", "veterinary_offices"
   add_foreign_key "viewer_parties", "parties"
   add_foreign_key "viewer_parties", "viewers"

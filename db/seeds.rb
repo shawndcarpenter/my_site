@@ -83,4 +83,6 @@ vet_office_3.veterinarians.create(name: "Alex", on_call: true, review_rating: 8)
   ViewerParty.create(viewer_id:@viewer2.id, party_id:@party1.id, host: false)
   ViewerParty.create(viewer_id:@viewer3.id, party_id:@party1.id, host: false)
 
-# ###############################################################################################################################################################
+# Third Space seeds ###############################################################################################################################################################
+@user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
+@user1 = User.create(first_name: "Mono", last_name: "Poly", email: "ntrautenberg23@turing.edu", password: "sett", role: 1)
