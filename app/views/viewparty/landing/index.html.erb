@@ -1,0 +1,31 @@
+<%= render partial: 'viewparty/shared/header' %>
+<%= render partial: 'viewparty/shared/box' %>
+<%= render partial: 'viewparty/shared/button' %>
+<%= render partial: 'viewparty/shared/centerframe' %>
+
+<%= render partial: '/viewparty/landing/subheader' %>
+
+<div class="center">
+  <br>
+  <%= button_to "Create New Viewer", new_viewparty_viewer_path, method: :get %>
+  <br>
+<% if current_viewer %>
+    <%= button_to 'Logout', viewparty_logout_path, method: :delete %>
+<% else %>
+    <%= link_to 'Login', viewparty_login_path %>
+<% end %>
+
+  <div class="sectionheader">
+    <%= link_to "Existing Viewers", viewparty_viewers_path %>
+  </div>
+
+  <br>
+  <% @viewers.each do |viewer| %>
+    <section id="viewer-<%= viewer.id %>">
+      <button class="nav_button">
+        <h4><%= link_to "#{viewer.email}", viewparty_viewer_path(viewer.id) %></h4>
+      </button>
+    </section>
+    <br>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<%= render partial: 'viewparty/shared/header' %>
+<%= render partial: 'viewparty/shared/box' %>
+<%= render partial: 'viewparty/shared/button' %>
+<%= render partial: 'viewparty/shared/centerframe' %>
+
+<%= render partial: 'viewparty/landing/subheader' %>
+<div class="center">
+  <div class="sectionheader">
+  <h3>Register a New Viewer </h3>
+  </div>
+
+<%= form_with url: viewparty_viewers_path, method: :post, local: :true do |f| %>
+<%= f.label "Name:" %>
+<%= f.text_field :name %>
+<%= f.label "E-mail:" %>
+<%= f.text_field :email %>
+<%= f.label 'Password'%>
+<%= f.text_field :password %></p> 
+<%= f.submit "Create New Viewer" %>
+<% end %>

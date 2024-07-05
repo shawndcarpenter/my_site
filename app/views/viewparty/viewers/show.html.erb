@@ -1,0 +1,58 @@
+<%= render partial: 'viewparty/shared/header' %>
+<%= render partial: 'viewparty/shared/box' %>
+<%= render partial: 'viewparty/shared/button' %>
+<%= render partial: 'viewparty/shared/centerframe' %>
+
+<%= render partial: 'viewparty/landing/subheader' %>
+
+<div class="center">
+  <div class="sectionheader">
+    <h2><%= @viewer.name %>'s Dashboard</h2>
+  </div>
+
+  <%= button_to "Discover Movies", viewparty_viewer_discover_index_path(@viewer), method: :get%>
+  <br>
+
+  <% @viewer_parties.each do |viewer_party| %>
+    <% cache("#{viewer_party.id}image-tag") do %>
+    <div class="box">
+      <section id="party-<%= viewer_party.id %>">
+
+        <div class="img">
+          <p><%= image_tag "https://image.tmdb.org/t/p/w500/#{viewer_party.movie_poster_file_path}", width: "200" %>
+        </div>
+
+        <h3><%= link_to "#{viewer_party.party.movie_title}", viewparty_viewer_movie_path(@viewer, viewer_party.party.movie_id) %><br></h3>
+
+        <%= viewer_party.party.pretty_day %><br>
+        <%= viewer_party.party.pretty_time %><br>
+        <%= viewer_party.party.duration_in_hours_and_minutes %><br>
+
+        
+        <% if viewer_party.host_id == @viewer.id %>
+            <p>Hosting</p>
+        <% else %>
+            <p>Invited</p>
+        <% end %>
+
+      </section>
+
+      <% if viewer_party.host != @viewer %>
+        <b>Host</b><br>
+        <%= viewer_party.host.name %>
+        <br><br>
+      <% end %>
+      <b>Invited Guests</b>
+      <br>
+      <% viewer_party.party.viewers.each do |viewer| %>
+        <% if viewer.id == viewer_party.viewer_id %>
+          <b><li><%= viewer.name %></li></b>
+        <% else %>
+          <li><%= viewer.name %></li>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <% end %>
+
+</div>

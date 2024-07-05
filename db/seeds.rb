@@ -71,4 +71,16 @@ vet_office_1.veterinarians.create(name: "Taylor", on_call: true, review_rating: 
 vet_office_1.veterinarians.create(name: "Jim", on_call: true, review_rating: 9)
 vet_office_3.veterinarians.create(name: "Alex", on_call: true, review_rating: 8)
 
-################################################################################################################################################################
+# ViewParty seeds ###############################################################################################################################################################
+  @viewer1 = Viewer.create!(name: "Shawn", email: "shawn@website.com", password: "1234")
+  @viewer2 = Viewer.create!(name: "Anthea", email: "anthea@website.com", password: "1234")
+  @viewer3 = Viewer.create!(name: "Xero", email: "xero@spooky.com", password: "1234")
+
+  @party1 = @viewer1.parties.create!(movie_title: "E.T.", duration: 120, day: Date.new(2023, 1, 23), start_time: "08:00")
+  @party2 = @viewer1.parties.create!(movie_title: "Eraserhead", duration: 150, day: Date.new(2023, 1, 23), start_time: "07:00")
+  
+  @test = ViewerParty.create(viewer_id:@viewer1.id, party_id:@party1.id, host: true)
+  ViewerParty.create(viewer_id:@viewer2.id, party_id:@party1.id, host: false)
+  ViewerParty.create(viewer_id:@viewer3.id, party_id:@party1.id, host: false)
+
+# ###############################################################################################################################################################
