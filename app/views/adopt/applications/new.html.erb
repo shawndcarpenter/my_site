@@ -1,0 +1,22 @@
+ <%= render partial: '/adopt/shared/header' %>
+ <div class="adopt-header" >
+  <h1>New Application</h1>
+</div>
+
+<div class="adopt-body" >
+  <%= form_with url: "/adopt/applications/#{:application_id}", method: :post, local: true do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :street_address %>
+    <%= form.text_field :street_address %>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+    <%= form.label :state %>
+    <%= form.select(:state, options_for_select(us_states, "CA")) %>
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code %>
+    <p><%= form.label :"Why would you be a good home?" %></p>
+    <p><%= form.text_area :description %></p>
+    <%= form.submit 'Submit Application' %>
+  <% end %>
+</div>

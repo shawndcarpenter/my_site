@@ -91,3 +91,19 @@ z-index: 1;
 position: relative;
 z-index: 2;
 }
+
+// adopt
+  // header
+.adopt-header {
+  border: 5px outset black;
+  background-color: #ABA9C3;
+  font-family: Helvetica;
+  text-align: center;
+  }
+  // body
+.adopt-body {
+  border: 1px outset black;
+  background-color: SeaShell;
+  font-family: Helvetica;
+  text-align: left;
+  }

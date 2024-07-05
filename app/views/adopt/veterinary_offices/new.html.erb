@@ -1,0 +1,6 @@
+<%= render partial: '/adopt/shared/header' %>
+<div class="adopt-header" >
+<h1>New Vet Office</h1>
+</div>
+
+<%= render partial: 'form', locals: { path: "/adopt/veterinary_offices", method: :post } %>
