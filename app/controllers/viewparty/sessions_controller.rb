@@ -8,20 +8,20 @@ class Viewparty::SessionsController < ApplicationController
       if viewer && viewer.authenticate(params[:password])
         session[:viewer_id] = viewer.id
         flash[:notice]="Login successful"
-        redirect_to '/'
+        redirect_to '/viewparty'
       else
         flash[:notice]="Invalid Email or Password"
-        redirect_to '/login'
+        redirect_to '/viewparty/login'
       end
     else
       flash[:notice]="Invalid Email or Password"
-      redirect_to '/login'
+      redirect_to '/viewparty/login'
     end
   end
 
   def destroy
     session[:email] = nil
     flash[:notice]="Logged Out"
-    redirect_to '/login'
+    redirect_to '/viewparty/login'
   end
 end

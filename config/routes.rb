@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get '/viewparty/register', to: 'viewparty/viewers#new', as: 'register'
   post '/viewparty/register', to: 'viewparty/viewers#create'
 
-  get 'viewparty/login', to: 'sessions#new'
-  post 'viewparty/login', to: 'sessions#create'
-  get 'viewparty/logout', to: 'sessions#destroy'
+  get 'viewparty/login', to: 'viewparty/sessions#new'
+  post 'viewparty/login', to: 'viewparty/sessions#create'
+  delete 'viewparty/logout', to: 'viewparty/sessions#destroy'
 
   namespace :viewparty do
     resources :viewers, only: [:index, :create, :new, :show] do
@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   patch "/adopt/application_pets/:pet_id", to: "adopt/application_pets#update"
   get "/adopt/admin/shelters/:id", to: "adopt/admin/shelters#show"
 
-  
+
   # main pages ####################################################
   get "/education", to: "educations#index"
   get "/experience", to: "experiences#index"
