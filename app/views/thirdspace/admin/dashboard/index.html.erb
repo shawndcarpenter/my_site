@@ -1,54 +1,41 @@
 <h3> Existing Users </h3>
 
-<% @users.each do |user| %>
-  <%= link_to user.email, "/users/#{user.id}" %><br>
-<% end %>
-
-<div data-controller="geolocation"></div>
-<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-  <div class="text-center">
-    <div class="mb-3">
-      <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
-    </div>
-
-    <h3>Welcome, <%= @user.first_name %>! What is your mood today?</h3>
-    <h6>Allow ThirdSpace to acess your location for the nearby search to work. Alternatively, search by city and state.</h6>
-    <nav class="navbar navbar-light bg-white">
-    <%= button_to "Happy", thirdspace_search_locations_path(:mood => "happy"), class: "small-default-button me-2", role: "button" %>
-    <%= button_to "Sad", thirdspace_search_locations_path(:mood => "sad"), data: {action: "geolocation#search"}, class: "small-default-button me-2", role: "button" %>
-    <%= button_to "Studious", thirdspace_search_locations_path(:mood => "studious"), data: {action: "geolocation#search"}, class: "small-default-button me-2", role: "button" %>
-    <%= button_to "Social", thirdspace_search_locations_path(:mood => "social"), data: {action: "geolocation#search"}, class: "small-default-button me-2", role: "button" %>
-    <%= button_to "Party!", thirdspace_search_locations_path(:mood => "party"), data: {action: "geolocation#search"}, class: "small-default-button me-2", role: "button" %>
-    <%= button_to "Chill", thirdspace_search_locations_path(:mood => "chill"), data: {action: "geolocation#search"}, class: "small-default-button me-2", role: "button" %>
-    </nav>
-
-
-
-    <h3>Where would you like to search today?</h3><br>
-    
-    <%= form_with url: thirdspace_search_locations_path, method: :post, local: true do |form| %>
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :city, "city", class: "form-label" %>
-      </div>
-      <div class="col-sm-10">
-        <%= form.text_field :city, class: "form-control", required: true %>
-      </div>
-    </div>
-
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :state, "state", class: "form-label" %>
-      </div>
-      <div class="col-sm-10">
-        <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'Select a state' }, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <%= form.submit "submit", class: "btn btn-primary" %>
-    </div>
+<ul>
+  <% @users.each do |user| %>
+    <% if user.role == "admin" %> 
+      <div class="card border-success mb-3" style="max-width: 50rem;" >
+        <div class="card-header text-success">
+          <b>Admin, </b>id #<%= user.id %>:
+    <% else %>
+      <div class="card" style="max-width: 50rem;" >
+        <div class="card-header">
+          User, id #<%= user.id %>:
     <% end %>
+      </div>
+      <div class="card-body">
+        <p class="card-title"><b>Email: </b><%= mail_to user.email %></p>
+        <p class="card-text"><b>Name: </b><%= user.first_name %> <%= user.last_name %></p>
+        <% if user.search_location %>
+          <p class="card-text"><b>City: </b><%= user.search_location.city %>, <%= user.search_location.state %></p>
+        <% else %>
+          <p class="card-text">No location provided.</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</ul>
 
-  </div>
-</div>
+<h3> Feedback </h3>
+<ul>
+  <% @contacts.each.with_index(1) do |contact, index| %>
+    <div class="card" style="max-width: 50rem;">
+      <div class="card-header">
+        Message #<%=index%>:
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><b>Subject: </b><%= contact.subject %></h5>
+        <p class="card-text"><b>Description: </b><%= contact.description %></p>
+      </div>
+    </div>
+  <% end %>
+</ul>

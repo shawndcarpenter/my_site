@@ -112,6 +112,7 @@ Rails.application.routes.draw do
   get '/thirdspace/password/reset/edit', to: 'thirdspace/password_resets#edit'
   patch '/password/reset/edit', to: 'thirdspace/password_resets#update'
   
+  get "/thirdspace/admin/dashboard", to: "thirdspace/admin/dashboard#index"
   namespace :thirdspace do
     resources :third_spaces do
       get :create_third_space, on: :collection, as: :create_third_space
@@ -123,9 +124,6 @@ Rails.application.routes.draw do
       resources :third_spaces, only: [:index], controller: 'thirdspace/users/third_spaces'
     end
 
-    namespace :admin do
-      get "thirdspace/dashboard", to: "thirdspace/dashboard#index"
-    end
   end
   match "thirdspace/error", to: "thirdspace/errors#show", via: :all
 end
