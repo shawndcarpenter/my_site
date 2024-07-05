@@ -1,0 +1,21 @@
+<%= render partial: 'viewparty/shared/centerframe' %>
+<%= render partial: 'viewparty/shared/button' %>
+
+<%= render partial: 'viewparty/landing/subheader' %>
+
+<div class="center">
+  <div class="subheader">
+    <h3>All Viewers</h3>
+  </div>
+
+<% @viewers.each do |viewer| %>
+  <button class="nav">
+    <section id="viewer-<%= viewer.id %>">
+      <%= viewer.name %>
+      <%= link_to "#{viewer.email}", viewparty_viewer_path(viewer.id) %>
+    </section>
+  </button>
+  <br><br>
+<% end %>
+
+</div>

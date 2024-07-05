@@ -1,0 +1,32 @@
+<%= render partial: 'viewparty/shared/box' %>
+<h1><%= @viewed.name %>'s Dashboard</h1>
+
+<h3>Viewing Parties</h3>
+<% @viewer_parties.each do |viewer_party| %>
+  <div class="box">
+    <section id="party-<%= viewer_party.id %>">
+      <div class="img">
+        <p><%= image_tag "https://image.tmdb.org/t/p/w500/#{viewer_party.movie_poster_file_path}", width: "200" %>
+      </div>
+      <h4>Host: <%= viewer_party.host.name %>
+      <p><%= link_to "#{viewer_party.party.movie_title}", viewparty_viewer_movie_path(@primary, viewer_party.party.movie_id) %><br>
+      <%= viewer_party.party.pretty_day %><br>
+      <%= viewer_party.party.pretty_time %><br><br></p>
+      <p><%= viewer_party.party.duration_in_hours_and_minutes %></p>
+      <% if viewer_party.host_id == @viewed.id %>
+        <p>Hosting</p>
+      <% else %>
+        <p>Invited</p>
+      <% end %>
+    </section>
+    <ul>
+      <% viewer_party.party.viewers.each do |viewer| %>
+        <% if viewer.id == viewer_party.viewer_id %>
+          <b><li><%= viewer.name %></li></b>
+        <% else %>
+          <li><%= viewer.name %></li>
+        <% end %>
+      <% end %>
+      </ul>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<%= render partial: 'viewparty/shared/box' %>
+<%= render partial: 'viewparty/shared/button' %>
+<%= render partial: 'viewparty/shared/centerframe' %>
+
+<%= render partial: 'viewparty/landing/subheader' %>
+
+<div class="center">
+  <h2>Create a Movie Party for <%= @movie_facade.detailed_movie.title %></h2>
+
+  <%= button_to "Discover Page", viewparty_viewer_discover_index_path(@viewer), method: :get%>
+
+  <h3>Viewing Party Details</h3>
+  Movie Title   <b><%= @movie_facade.detailed_movie.title %></b>
+  <%= form_with url: viewparty_viewer_movie_viewing_party_index_path(@viewer, @movie_facade.detailed_movie.id), method: :post, local: :true do |f| %>
+    <%= f.label "Duration of Party" %> <%= f.text_field :duration, value: @movie_facade.detailed_movie.runtime %><br>
+    <%= f.label "Day" %> <%= f.date_field :day %><br>
+    <%= f.label "Start Time" %> <%= f.time_field :start_time %>
+
+    <h4>Invite Other Viewers</h4>
+    <% Viewer.other_viewers(@viewer).each do |viewer| %>
+      <div id ="invited_viewer-<%= viewer.id %>">
+        <%= f.check_box "invitees", { multiple: true }, viewer.id, nil %>
+        <%= "#{viewer.name} (#{viewer.email})"%>
+      </div>
+    <% end %>
+
+    <%= f.submit "Create Party" %>
+
+  <% end %>
+</div>
