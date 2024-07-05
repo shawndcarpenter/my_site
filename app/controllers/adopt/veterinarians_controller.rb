@@ -16,9 +16,9 @@ class Adopt::VeterinariansController < ApplicationController
     veterinarian = Veterinarian.new(vet_params)
 
     if veterinarian.save
-      redirect_to "/veterinary_offices/#{@vet_office.id}/veterinarians"
+      redirect_to "/adopt/veterinary_offices/#{@vet_office.id}/veterinarians"
     else
-      redirect_to "/veterinary_offices/#{@vet_office.id}/veterinarians/new"
+      redirect_to "/adopt/veterinary_offices/#{@vet_office.id}/veterinarians/new"
       flash[:alert] = "Error: #{error_message(veterinarian.errors)}"
     end
   end
@@ -30,16 +30,16 @@ class Adopt::VeterinariansController < ApplicationController
   def update
     veterinarian = Veterinarian.find(params[:id])
     if veterinarian.update(vet_params)
-      redirect_to "/veterinarians/#{veterinarian.id}"
+      redirect_to "/adopt//veterinarians/#{veterinarian.id}"
     else
-      redirect_to "/veterinarians/#{veterinarian.id}/edit"
+      redirect_to "/adopt/veterinarians/#{veterinarian.id}/edit"
       flash[:alert] = "Error: #{error_message(veterinarian.errors)}"
     end
   end
 
   def destroy
     Veterinarian.find(params[:id]).destroy
-    redirect_to "/veterinarians"
+    redirect_to "/adopt/veterinarians"
   end
 
   private

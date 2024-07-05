@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def adopt
+  end
   # GET /projects/1 or /projects/1.json
   def show
   end

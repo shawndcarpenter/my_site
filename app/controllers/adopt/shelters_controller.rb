@@ -32,9 +32,9 @@ class Adopt::SheltersController < ApplicationController
     shelter = Shelter.new(shelter_params)
 
     if shelter.save
-      redirect_to "/shelters"
+      redirect_to "/adopt/shelters"
     else
-      redirect_to "/shelters/new"
+      redirect_to "/adopt/shelters/new"
       flash[:alert] = "Error: #{error_message(shelter.errors)}"
     end
   end
@@ -46,9 +46,9 @@ class Adopt::SheltersController < ApplicationController
   def update
     shelter = Shelter.find(shelter_params[:id])
     if shelter.update(shelter_params)
-      redirect_to "/shelters"
+      redirect_to "/adopt/shelters"
     else
-      redirect_to "/shelters/#{shelter.id}/edit"
+      redirect_to "/adopt/shelters/#{shelter.id}/edit"
       flash[:alert] = "Error: #{error_message(shelter.errors)}"
     end
   end
@@ -56,7 +56,7 @@ class Adopt::SheltersController < ApplicationController
   def destroy
     shelter = Shelter.find(params[:id])
     shelter.destroy
-    redirect_to "/shelters"
+    redirect_to "/adopt/shelters"
   end
 
   private

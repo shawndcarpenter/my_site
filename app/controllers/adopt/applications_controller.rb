@@ -3,7 +3,7 @@ class Adopt::ApplicationsController < ApplicationController
   end
   
   def show
-    @application = Application.find(params[:application_id])
+    @application = Application.find(params[:id])
     @pets = @application.pets
     if params[:search].present?
       @searched = Pet.search_for_pet(params[:search])
@@ -13,9 +13,9 @@ class Adopt::ApplicationsController < ApplicationController
   def create
     application = Application.new(application_params)
     if application.save
-      redirect_to "/applications/#{application.id}"
+      redirect_to "/adopt/applications/#{application.id}"
     else 
-      redirect_to "/applications/new"
+      redirect_to "/adopt/applications/new"
       flash[:alert] = "Error: #{error_message(application.errors)}"
     end
   end
@@ -28,7 +28,7 @@ class Adopt::ApplicationsController < ApplicationController
     elsif params[:reason].present?
       @application.update(status: 1)
     end
-    redirect_to "/applications/#{@application.id}"
+    redirect_to "/adopt/applications/#{@application.id}"
   end
 
   private

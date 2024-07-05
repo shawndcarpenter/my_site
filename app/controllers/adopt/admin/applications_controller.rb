@@ -1,6 +1,6 @@
 class Adopt::Admin::ApplicationsController < ApplicationController
   def show
-    @application = Application.find(params[:application_id])
+    @application = Application.find(params[:id])
     @pets = @application.pets
   end
 end

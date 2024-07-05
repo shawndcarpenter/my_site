@@ -1,6 +1,6 @@
 class Adopt::ApplicationPetsController < ApplicationController
   def update
-    application = Application.find(params[:id])
+    application = Application.find(params[:application_id])
     selected_app_pet = ApplicationPet.find(params[:pet_id])
     if params[:approved?] == "Yes"
       selected_app_pet.update(application_pet_status: 2)
@@ -10,7 +10,7 @@ class Adopt::ApplicationPetsController < ApplicationController
       selected_app_pet.pet.update(adoptable: true)
     end
     update_application(application)
-    redirect_to "/admin/applications/#{application.id}"
+    redirect_to "/adopt/admin/applications/#{application.id}"
   end
 
   def update_application(application)
