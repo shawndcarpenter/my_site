@@ -61,7 +61,7 @@
       <br><br>
         <% selected_rating = params[:rating] || 'all' %>
 
-        <%= form_tag("/third_spaces/#{params[:id]}/all_reviews", method: 'get') do %>
+        <%= form_tag("/thirdspace/third_spaces/#{params[:id]}/all_reviews", method: 'get') do %>
           <%= select_tag 'rating', options_for_select({ 'All Ratings' => 'all', '1 Star' => '1', '2 Stars' => '2', '3 Stars' => '3', '4 Stars' => '4', '5 Stars' => '5' }, selected_rating) %>
           <%= submit_tag 'Filter' %>
         <% end %>

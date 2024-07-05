@@ -21,7 +21,7 @@
     </a>
 
     <!-- Search Form with specific class -->
-    <form class="d-flex my-auto search-form" action="/third_spaces/search" method="get" style="flex-grow: 1; margin-right: 10px;" name="name" id="name">
+    <form class="d-flex my-auto search-form" action="/thirdspace/third_spaces/search" method="get" style="flex-grow: 1; margin-right: 10px;" name="name" id="name">
       <input class="form-control me-3" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
       <button class="btn btn-outline-secondary" type="submit">Search</button>
     </form>
@@ -47,7 +47,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <%= form_tag("/third_spaces/search", method: "get") do %>
+              <%= form_tag("/thirdspace/third_spaces/search", method: "get") do %>
                 <div class="form-group">
                               <div class="form-group">
               <% features_options = {

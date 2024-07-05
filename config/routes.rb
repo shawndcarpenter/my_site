@@ -116,7 +116,7 @@ Rails.application.routes.draw do
     resources :third_spaces do
       get :create_third_space, on: :collection, as: :create_third_space
     end
-    resources :saved_locations, only: :index
+    resources :saved_locations, only: [:index, :create]
     resources :search_locations, only: [:create] 
     resources :locations, only: [:index, :show, :new, :create]
     resources :users, only: [] do

@@ -15,11 +15,11 @@
         </div>
         <div class="col-md-3 text-start"> 
           <% if @saved_yelp_ids.include?(@space.yelp_id) %>
-            <form class="d-flex align-items-center" action="/third_spaces/unfavorite" method="delete">
+            <form class="d-flex align-items-center" action="/thirdspace/third_spaces/unfavorite" method="delete">
               <button class="small-default-button" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Remove Favorite</button>
             </form>
           <% else %>
-            <form class="d-flex align-items-center" action="/third_spaces/favorite" method="post">
+            <form class="d-flex align-items-center" action="/thirdspace/third_spaces/favorite" method="post">
               <button class="small-default-button" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Favorite</button>
             </form>
           <% end %>
@@ -101,12 +101,12 @@
     <div class="container text-center mt-4">
       <div class="row justify-content-center">
         <div class="col-auto">
-          <form action="/third_spaces/<%= @space.yelp_id %>/add_review" method="get">
+          <form action="/thirdspace/third_spaces/<%= @space.yelp_id %>/add_review" method="get">
             <button class="btn btn-primary" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Write A Review</button>
           </form>
         </div>
         <div class="col-auto">
-          <%= link_to "See All Reviews", "/third_spaces/#{params[:id]}/all_reviews", class: "btn btn-primary" %>
+          <%= link_to "See All Reviews", "/thirdspace/third_spaces/#{params[:id]}/all_reviews", class: "btn btn-primary" %>
         </div>
       </div>
     </div>

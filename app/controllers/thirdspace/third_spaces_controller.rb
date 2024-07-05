@@ -97,7 +97,7 @@ class Thirdspace::ThirdSpacesController < ApplicationController
     facade = FavoriteSpaceFacade.new(user_id, space_id)
     facade.spaces
 
-    redirect_back(fallback_location: dashboard_path)
+    redirect_back(fallback_location: thirdspace_dashboard_path)
   end
 
   def unfavorite
@@ -106,7 +106,7 @@ class Thirdspace::ThirdSpacesController < ApplicationController
     facade = UnfavoriteSpaceFacade.new(user_id, yelp_id)
     facade.spaces
     
-    redirect_back(fallback_location: dashboard_path)
+    redirect_back(fallback_location: thirdspace_dashboard_path)
   end
 
   def show

@@ -9,7 +9,7 @@ class Thirdspace::UsersController < ApplicationController
     if params[:mood]
       @mood = params[:mood]
     else
-      @mood = "happy"
+      @mood = "chill"
     end
     @search_location = @user.search_location
     @saved = SavedSpacesFacade.new(@user.id).spaces
@@ -19,6 +19,7 @@ class Thirdspace::UsersController < ApplicationController
     @mood_recs = filter_by_mood(location_recs)
     @mood_recs = make_uniq(@mood_recs)
     @location_recs = make_uniq(location_recs)
+    # binding.pry
     @location_recs = location_recs.reject! do |location|
       @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
     end

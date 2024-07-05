@@ -84,6 +84,6 @@ vet_office_3.veterinarians.create(name: "Alex", on_call: true, review_rating: 8)
 
 # Third Space seeds ###############################################################################################################################################################
 @user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
-@search_location = @user1.build_search_location(city: "Boulder", state: "CO", mood: "happy")
+@search_location = @user1.build_search_location(city: "Boulder", state: "CO")
 @search_location.save!
 @user1 = User.create(first_name: "Mono", last_name: "Poly", email: "ntrautenberg23@turing.edu", password: "sett", role: 1)
