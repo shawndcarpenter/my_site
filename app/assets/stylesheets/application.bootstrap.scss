@@ -8,6 +8,8 @@
 
 .body {
   background-color: #494E6B;
+  background-attachment: fixed;
+
 }
 
 .skills {
@@ -64,7 +66,13 @@ overflow: hidden;
 }
 
 .background {
+  height: 100%;
+   overflow: hidden;
+// background-position:center;
+// background-size: 100% 100%;
 position: absolute;
+// overflow: hidden;
+attachment: fixed;
 top: 0;
 left: 0;
 right: 0;
@@ -76,15 +84,18 @@ z-index: 1;
 }
 
 .background-pages {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: asset-url('bg.png') no-repeat center center;
-background-size: cover;
+  height: 100%;
+  overflow-y: hidden;
+  position: fixed;
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: asset-url('bg.png') no-repeat center center;
+  background-size: cover;
 /* filter: brightness(0.40); */
-z-index: 1;
+  z-index: 1;
 }
 
 .items {
@@ -107,3 +118,597 @@ z-index: 2;
   font-family: Helvetica;
   text-align: left;
   }
+
+
+  .btn-group {
+    /* third-space*/
+    border-radius: 20px;
+    border: 1px solid black; 
+    background-color: white;
+    display: inline-flex;
+  }
+  
+  .btn-outline-primary:hover {
+    /* third-space*/
+    background-color: #007bff; /* Example hover background color */
+    color: white; /* Example hover text color */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .btn-group .btn-outline-primary {
+    /* third-space*/
+    transition: 0.3s; 
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 0px;
+    display: inline-flex;
+  }
+  .btn-group > .btn-outline-primary:hover {
+    
+  /* third-space*/// .btn-group .btn-outline-primary:hover:focus {
+  
+   /* third-space*/ transition: 0.3s; 
+    border-radius: 20px;
+  
+    border: 0px;
+    display: inline-flex;
+  }
+  
+  
+  .btn-group .btn-btn-outline-primary:hover, 
+  .btn-group .btn-btn-outline-primary:hover:focus {
+    
+   /* third-space*/ border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .btn-group-button:first-child {
+    /* third-space*/
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .btn-group-button:last-child {
+    /* third-space*/
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  .dash-header {
+    /* third-space*/
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  
+    border-radius: 10px; /* Adjust as needed for the desired rounded effect */
+    padding: 10px; /* Add padding to make the rounded corners noticeable */
+    display: inline-block; /* This helps in applying padding and border-radius */
+    margin-right: -5px; /* Negative margin to compensate for the padding */
+    margin-left: -5px; /* Negative margin to compensate for the padding */
+  }
+  
+  .forgot-link {
+    /* third-space*/
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .forgot-link:hover {
+    /* third-space*/
+    font-style: italic;
+  }
+  
+  
+  .form-control label {
+    /* third-space*/
+    text-transform: none;
+  }
+  
+  .form-control label {
+    /* third-space*/
+    text-transform: none;
+  }
+  
+  
+  .dash-header:hover {
+    /* third-space*/
+    background-color: #F5F5F5; /* Color change on hover */
+    box-shadow: 0 0 0 10px #F5F5F5 inset; /* Inset box-shadow that simulates padding */
+    
+  }
+  
+  .btn-primary {
+    /* third-space*/
+    border: rgba(153, 171, 236, 1);
+    background-color: rgba(153, 171, 236, 1);
+    color: black;
+  }
+  
+  .btn-secondary {
+    /* third-space*/
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    /* third-space*/
+    border: #A499EC;
+    background-color: #A499EC;
+    color: black;
+  }
+  .space-link {
+    
+  /* third-space*/  text-decoration: none !important;
+    color: rgb(35, 35, 35);
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .space-link:hover {
+    /* third-space*/
+    color: #9a9292 !important; 
+  }
+  
+  
+  .logo-container {
+    /* third-space*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 50px; /* Adjust the margin as needed */
+  }
+  
+  .smaller-logo {
+    /* third-space*/
+    width: 200px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .rounded-container {
+    /* third-space*/
+    display: inline-block;
+    border-radius: 33px;
+    padding: 8px !important; /* Adjust the padding as needed */
+    border: 2px solid #CECECE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .rounded-highlight-b {
+    /* third-space*/
+    display: inline-flex; /* Use flexbox */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    border-radius: 33px;
+    padding: 8px !important;
+    background-color: #D7D5AC;
+    border: 2px solid #D7D5AC;
+    font-weight: bold;
+  }
+  
+  .rounded-highlight-b-ext {
+    /* third-space*/
+    display: inline-flex; /* Use flexbox */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    border-radius: 33px;
+    padding: 5px 20px;
+    background-color: #D7D5AC;
+    border: 2px solid #D7D5AC;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .rounded-highlight {
+    /* third-space*/
+    display: inline-flex; /* Use flexbox */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    border-radius: 33px;
+    padding: 10px 20px !important;
+    background-color: #ACABE3;
+    border: 2px solid #ACABE3;
+    font-weight: bold;
+  }
+  
+  
+  .rounded-button {
+    /* third-space*/
+    display: inline-block;
+    border-radius: 33px;
+    padding: 8px !important;
+    background-color: #ACABE3;
+    border: 2px solid #ACABE3;
+    font-weight: bold;
+    cursor: pointer; /* Add this line to show a pointer cursor on hover */
+    transition: background-color 0.3s; /* Add a smooth transition for the background color change */
+    text-decoration: none; /* Remove underline from hyperlink */
+    color: inherit;
+  }
+  
+  /* Hover state */
+  .rounded-button:hover {
+    
+   /* third-space*/ background-color: transparent;
+  }
+  
+  /* Active state (when the button is clicked) */
+  .rounded-button:active {
+    
+   /* third-space*/ background-color: #6F6FA7;
+  }
+  
+  .gsi-material-button {
+    /* third-space*/
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: WHITE;
+    background-image: none;
+    border: 1px solid #747775;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #1f1f1f;
+    cursor: pointer;
+    font-family: 'Roboto', arial, sans-serif;
+    font-size: 14px;
+    height: 40px;
+    letter-spacing: 0.25px;
+    outline: none;
+    overflow: hidden;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+    transition: background-color .218s, border-color .218s, box-shadow .218s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+    max-width: 400px;
+    min-width: min-content;
+  }
+  
+  .gsi-material-button .gsi-material-button-icon {
+    /* third-space*/
+    height: 20px;
+    margin-right: 12px;
+    min-width: 20px;
+    width: 20px;
+  }
+  
+  .gsi-material-button .gsi-material-button-content-wrapper {
+    /* third-space*/
+    -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+  }
+  
+  .gsi-material-button .gsi-material-button-contents {
+    /* third-space*/
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    font-family: 'Roboto', arial, sans-serif;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
+  
+  .gsi-material-button .gsi-material-button-state {
+    /* third-space*/
+    -webkit-transition: opacity .218s;
+    transition: opacity .218s;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .gsi-material-button:disabled {
+    /* third-space*/
+    cursor: default;
+    background-color: #ffffff61;
+    border-color: #1f1f1f1f;
+  }
+  
+  .gsi-material-button:disabled .gsi-material-button-contents {
+    /* third-space*/
+    opacity: 38%;
+  }
+  
+  .gsi-material-button:disabled .gsi-material-button-icon {
+    /* third-space*/
+    opacity: 38%;
+  }
+  
+  .gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+  .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+    
+   /* third-space*/ background-color: #303030;
+    opacity: 12%;
+  }
+  
+  .gsi-material-button:not(:disabled):hover {
+    /* third-space*/
+    -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  }
+  
+  .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+    /* third-space*/
+    background-color: #303030;
+    opacity: 8%;
+  }
+  
+  
+  .scroll-box {
+    /* third-space*/
+    overflow-x: auto;
+    white-space: nowrap;
+    height: 250px;
+    border: 1px solid #ccc;
+    margin: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .rounded-entry {
+    /* third-space*/
+    border-radius: 16px;
+    height: 240px;
+    padding: 16px;
+    background-color: #D7D5AC;
+    border: 2px solid #D7D5AC;
+    margin-top: auto;
+    margin-bottom: auto;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .rounded-entry > * {
+    /* third-space*/
+    flex-grow: 1;
+  }
+  
+  .img-btn-wrapper {
+    /* third-space*/
+    display: flex;
+    align-items: center;
+  }
+  
+  .img-btn-wrapper img {
+    /* third-space*/
+    margin-right: 5px;
+  }
+  
+  .rounded-nav-btn {
+    /* third-space*/
+    border-radius: 33px;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  
+  .rounded-highlight-custom {
+    /* third-space*/
+    background-color: #D7D5AC;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 5px; 
+    margin-left: 50px; 
+    margin-right: 50px; 
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  // .tag-item {
+  
+  //* third-space*//   background-color:  #D7D5AC; 
+  //   border: 1px solid #dee2e6; 
+  // }
+  
+  // .info-item {
+  
+  //* third-space*//   width: 300px; 
+  //   background-color: #e9ecef; 
+  //   border: 1px solid #dee2e6; 
+  // }
+  
+  .rounded-image {
+    /* third-space*/
+    border-radius: 21px;
+  }
+  
+  .initial-button-small {
+    /* third-space*/
+    display: inline-block;
+    height: 30px; /* Reduced height */
+    padding: 4px 10px !important; /* Reduced padding for top, bottom, left, and right */
+    border: 1px solid #ACABE3; /* Thinner border */
+    background-color: #ACABE3;
+    font-weight: bold;
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+    text-decoration: none; /* Remove underline from hyperlink */
+    color: inherit;
+    text-align: center; /* Ensure text is horizontally centered */
+    line-height: 20px; /* Adjusted line height for vertical centering */
+    font-size: 16px; /* Smaller font size */
+  }
+  
+  .initial-button {
+    /* third-space*/
+    display: inline-block;
+    height: 50px; /* Set the height */
+    padding: 8px 20px !important; /* Top and bottom padding 8px, left and right padding 20px */
+    border: 2px solid #ACABE3;
+    background-color: #ACABE3;
+    font-weight: bold;
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+    text-decoration: none; /* Remove underline from hyperlink */
+    color: inherit;
+    text-align: center; /* Ensure text is horizontally centered */
+    line-height: 27px; /* Vertically center the text */
+    font-size: 25px;
+  }
+  
+  /* Hover state */
+  .initial-button:hover {
+    
+   /* third-space*/ border: 2px solid #A499EC;
+    background-color: #A499EC;
+  }
+  
+  .location-button {
+    /* third-space*/
+    display: inline-block;
+    height: 50px;
+    padding: 8px !important;
+    border: 2px solid #ACABE3;
+    background-color: #ACABE3;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: black; /* Set font color to white */
+    text-align: center;
+    line-height: 34px;
+    font-size: 20px; /* Adjust font size to be smaller, e.g., 16px */
+  }
+  
+  /* Hover state */
+  .location-button:hover {
+    
+   /* third-space*/ border: 2px solid #A499EC;
+    background-color: #A499EC;
+  }
+  
+  .city-input-spacing {
+    /* third-space*/
+    margin-right: 15px; /* Adjust this value as needed */
+  }
+  
+  .state-select-spacing {
+    /* third-space*/
+    margin-right: 15px; /* Adjust this value as needed */
+  }
+  
+  .mood-button {
+    /* third-space*/
+    margin: 5px; /* Adds space around each button */
+    border-radius: 20px; /* Rounded corners */
+    color: black; /* Make the text color black */
+    font-size: 18px; /* Increase the font size */
+    /* Add any other styling here */
+    outline: none; /* Remove the default focus outline */
+  }
+  
+  .mood-button:hover {
+    /* third-space*/
+    border-radius: 20px; /* Ensure border radius is consistent */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    
+   /* third-space*/ .mood-button {
+      /* third-space*/
+      width: 100%; /* Full width on smaller screens */
+      margin-bottom: 10px; /* More space between buttons vertically */
+    }
+  }
+  
+  .small-default-button {
+    /* third-space*/
+    display: inline-block;
+    height: 50px; /* Set the height */
+    padding: 8px 10px !important; /* Top and bottom padding 8px, left and right padding 20px */
+    border: 2px solid #ACABE3;
+    background-color: #ACABE3;
+    font-weight: bold;
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+    text-decoration: none; /* Remove underline from hyperlink */
+    color: inherit;
+    text-align: center; /* Ensure text is horizontally centered */
+    line-height: 27px; /* Vertically center the text */
+    font-size: 16px;
+    border-radius: 8px;
+  }
+  
+  /* Hover state */
+  .small-default-button:hover {
+    
+   /* third-space*/ border: 2px solid #A499EC;
+    background-color: #A499EC;
+  }
+  
+  .navbar-logo {
+    /* third-space*/
+    width: 200px; /* Adjust logo size as needed */
+    height: auto;
+  }
+  
+  .form-control-lg {
+    /* third-space*/
+    font-size: 1.25rem; /* Larger font size for search input */
+    padding: .5rem 1rem; /* Adjust padding to make the input taller */
+  }
+  
+  /* Ensure elements in the navbar are evenly spaced */
+  .navbar-nav {
+    
+   /* third-space*/ margin-left: auto;
+  }
+  
+  /* CSS for the right-side elements of the navbar */
+  .navbar-right {
+    
+   /* third-space*/ display: flex;
+    align-items: center;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+     //* third-space*/* Adjust the breakpoint as needed */
+    .navbar-collapse {
+      
+   /* third-space*/   display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar-right {
+    /* third-space*/  
+      justify-content: center; /* Center the items when they stack below */
+      margin-top: 1rem; /* Add some space between the search bar and the right-side elements */
+    }
+  }
+  

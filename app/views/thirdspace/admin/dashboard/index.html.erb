@@ -1,0 +1,41 @@
+<h3> Existing Users </h3>
+
+<ul>
+  <% @users.each do |user| %>
+    <% if user.role == "admin" %> 
+      <div class="card border-success mb-3" style="max-width: 50rem;" >
+        <div class="card-header text-success">
+          <b>Admin, </b>id #<%= user.id %>:
+    <% else %>
+      <div class="card" style="max-width: 50rem;" >
+        <div class="card-header">
+          User, id #<%= user.id %>:
+    <% end %>
+      </div>
+      <div class="card-body">
+        <p class="card-title"><b>Email: </b><%= mail_to user.email %></p>
+        <p class="card-text"><b>Name: </b><%= user.first_name %> <%= user.last_name %></p>
+        <% if user.search_location %>
+          <p class="card-text"><b>City: </b><%= user.search_location.city %>, <%= user.search_location.state %></p>
+        <% else %>
+          <p class="card-text">No location provided.</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</ul>
+
+<h3> Feedback </h3>
+<ul>
+  <% @contacts.each.with_index(1) do |contact, index| %>
+    <div class="card" style="max-width: 50rem;">
+      <div class="card-header">
+        Message #<%=index%>:
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><b>Subject: </b><%= contact.subject %></h5>
+        <p class="card-text"><b>Description: </b><%= contact.description %></p>
+      </div>
+    </div>
+  <% end %>
+</ul>

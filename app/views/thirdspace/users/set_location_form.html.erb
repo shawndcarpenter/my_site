@@ -1,0 +1,65 @@
+<body style="background-color: #C8C991;">
+  <div data-controller="geolocation"></div>
+  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+      <div class="mb-3">
+        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
+      </div>
+      <div class="container text-center">
+        <% if current_user.search_location.present? %>
+          <h4>Your set location is <%= current_user.search_location.city %>, <%= current_user.search_location.state %></h4>
+          <%= form_with url: update_location_param_path, method: :patch, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+            <div class="form-row d-flex align-items-end">
+              <div class="col-md-8 col-sm-12 mb-2 city-input-spacing">
+                <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "Change location", required: true %>
+              </div>
+              <div class="col-md-2 col-sm-6 mb-2 state-select-spacing"> 
+                <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'State' }, class: "form-control" %>
+              </div>
+              <div class="col-md-2 col-sm-6">
+                <%= form.submit "submit", class: "initial-button align-self-stretch" %>
+              </div>
+            </div>
+          <% end %>
+
+          <% flash.each do |type, message| %>
+            <div class="flash-messages flash-<%= type %>"><%= message %></div>
+          <% end %>
+
+          <%= form_tag update_location_param_path, method: :patch, class: "w-100" do %>
+            <%= hidden_field_tag :geo, "true" %>
+            <%= button_tag(type: 'submit', class: 'location-button') do %>
+              <%= image_tag 'blk-location.svg', alt: "Location Arrow", style: "margin-right: 5px;" %> Use Current Location
+            <% end %>
+          <% end %>
+
+        <% else %>
+        
+          <h3>Where would you like to search today?</h3><br>
+          <%= form_with url: thirdspace_search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+            <div class="form-row d-flex align-items-end">
+              <div class="col-md-8 col-sm-12 mb-2 city-input-spacing">
+                <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "city", required: true %>
+              </div>
+              <div class="col-md-2 col-sm-6 mb-2 state-select-spacing"> 
+                <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'State' }, class: "form-control" %>
+              </div>
+              <div class="col-md-2 col-sm-6">
+                <%= form.submit "submit", class: "initial-button align-self-stretch" %>
+              </div>
+            </div>
+            <h6>Allow ThirdSpace to access your location for the nearby search to work. Alternatively, search by city and state.</h6>
+          <% end %>
+              <%= form_tag thirdspace_search_locations_path, method: :post, class: "w-100" do %>
+                <%= hidden_field_tag :geo, "true" %>
+                <%= button_tag(type: 'submit', class: 'location-button') do %>
+                  <%= image_tag 'current_location.svg', alt: "Location Arrow", style: "margin-right: 5px;" %> Use Current Location
+                <% end %>
+              <% end %>
+        <% end %>
+      </div>
+      <br>
+    </div>
+    <br>
+  </div>
+</body>

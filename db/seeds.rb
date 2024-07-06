@@ -1,7 +1,6 @@
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
 # Example:
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
@@ -83,4 +82,9 @@ vet_office_3.veterinarians.create(name: "Alex", on_call: true, review_rating: 8)
   ViewerParty.create(viewer_id:@viewer2.id, party_id:@party1.id, host: false)
   ViewerParty.create(viewer_id:@viewer3.id, party_id:@party1.id, host: false)
 
-# ###############################################################################################################################################################
+# Third Space seeds ###############################################################################################################################################################
+@user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
+@search_location = @user1.build_search_location(city: "Boulder", state: "CO")
+@search_location.save!
+@user1 = User.create(first_name: "Mono", last_name: "Poly", email: "fake@email.test", password: "sett", role: 1)
+Contact.create(subject: "Nice", description: "I like the site!")

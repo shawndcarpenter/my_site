@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <%= render partial: 'thirdspace/shared/navbar' %>
+
+      <div class="col mx-auto"> 
+        <div class="container-fluid text-center">
+          <h3 class="text-center my-4">recommendations by mood.</h3>
+          <div class="row">
+            <% @recommendation_results.each do |recommendation| %>
+              <div class="col-md-4 mb-4">
+                <div id="location_result-<%= recommendation.id %>" class="recommendation-entry rounded-entry p-3 h-100 w-100">
+                  <p class="fs-4 text-center">
+                  <%= link_to recommendation.name, thirdspace_third_space_path(recommendation.yelp_id), class: "space-link" %> </p>
+                  <p class="fs-6 text-center text-wrap"><%= recommendation.address %></p>
+                  <p class="fs-6 text-center text-wrap"><%= recommendation.category %></p>
+                  <div style="padding-bottom: 10px">
+                    <% recommendation.rating.round(1).to_s.split('')[0].to_i.times do %>
+                      <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+                    <% end %>
+                    <% if recommendation.rating.round(1).to_s.split('')[2].to_i >= 5 %>
+                      <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+                    <% end %>
+                    <span><b><%= recommendation.rating.round(1) %></b></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

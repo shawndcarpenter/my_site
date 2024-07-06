@@ -8,6 +8,9 @@ class ProjectsController < ApplicationController
 
   def adopt
   end
+
+  def thirdspace
+  end
   # GET /projects/1 or /projects/1.json
   def show
   end
