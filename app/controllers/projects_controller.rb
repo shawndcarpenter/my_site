@@ -15,6 +15,8 @@ class ProjectsController < ApplicationController
   def show
   end
 
+  def sweather
+  end
   # GET /projects/new
   def new
     @project = Project.new
