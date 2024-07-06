@@ -8,6 +8,8 @@
 
 .body {
   background-color: #494E6B;
+  background-attachment: fixed;
+
 }
 
 .skills {
@@ -64,7 +66,13 @@ overflow: hidden;
 }
 
 .background {
+  height: 100%;
+   overflow: hidden;
+// background-position:center;
+// background-size: 100% 100%;
 position: absolute;
+// overflow: hidden;
+attachment: fixed;
 top: 0;
 left: 0;
 right: 0;
@@ -76,15 +84,18 @@ z-index: 1;
 }
 
 .background-pages {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: asset-url('bg.png') no-repeat center center;
-background-size: cover;
+  height: 100%;
+  overflow-y: hidden;
+  position: fixed;
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: asset-url('bg.png') no-repeat center center;
+  background-size: cover;
 /* filter: brightness(0.40); */
-z-index: 1;
+  z-index: 1;
 }
 
 .items {
