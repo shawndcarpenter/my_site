@@ -11,7 +11,7 @@
           <div class="col-md-10">
             <div class="card text-center">
               <div class="card card-body">
-                <h4>Demo Instructions:</h4>
+                <h4>Sweater Weather Demo Instructions:</h4>
                 <p>This demonstration exhibits the functionality of this API with limited endpoints. 
                   To use this application, please select one of the buttons below. 
                   A form will open with a dropdown containing some pre-selected queries you may use.
@@ -137,54 +137,56 @@
         </div>
       </div>
 
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-10">
-            <div class="card card-body">
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      <% if params[:local_query].present? %>
-                        <%= params[:local_query] %>
-                      <% elsif params[:roadtrip].present? %>
-                        <h4><%= params[:roadtrip] %></h4>
-                      <% elsif params[:usercreate].present? %>
-                        <h4><%= params[:usercreate] %></h4>
-                      <% elsif params[:userlogin].present? %>
-                        <h4><%= params[:userlogin] %></h4>
-                      <% end %>
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <% if params[:local_query].present? %>
-                        <div class="card-body text-white bg-dark">
-                          <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "request") %></code></pre>
-                          <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "response") %></code></pre>
-                        </div>
-                      <% end %>
+      <% if params[:local_query] || params[:road_trip] || params[:usercreate] || params[:userlogin] %>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card card-body">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <% if params[:local_query].present? %>
+                          <h5><%= params[:local_query] %></h5>
+                        <% elsif params[:roadtrip].present? %>
+                          <h5><%= params[:roadtrip] %></h5>
+                        <% elsif params[:usercreate].present? %>
+                          <h5><%= params[:usercreate] %></h5>
+                        <% elsif params[:userlogin].present? %>
+                          <h5><%= params[:userlogin] %></h5>
+                        <% end %>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <% if params[:local_query].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "response") %></code></pre>
+                          </div>
+                        <% end %>
 
-                      <% if params[:roadtrip].present? %>
-                        <div class="card-body text-white bg-dark">
-                          <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "request") %></code></pre>
-                          <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "response") %></code></pre>
-                        </div>
-                      <% end %>
+                        <% if params[:roadtrip].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "response") %></code></pre>
+                          </div>
+                        <% end %>
 
-                      <% if params[:usercreate].present? %>
-                        <div class="card-body text-white bg-dark">
-                          <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "request") %></code></pre>
-                          <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "response") %></code></pre>
-                        </div>
-                      <% end %>
+                        <% if params[:usercreate].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "response") %></code></pre>
+                          </div>
+                        <% end %>
 
-                      <% if params[:userlogin].present? %>
-                        <div class="card-body text-white bg-dark">
-                          <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "request") %></code></pre>
-                          <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "response") %></code></pre>
-                        </div>
-                      <% end %>
+                        <% if params[:userlogin].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "response") %></code></pre>
+                          </div>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -192,6 +194,6 @@
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
  
