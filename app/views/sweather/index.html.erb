@@ -1,281 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
-  <body class="body">
-    <div class="all-content">
-      <div class="background-pages"></div>
-        <div class="items">
-     <br><br><br><br>
-      <p>
-        <button class="small-default-button btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          GET Weather for a City
-        </button>
-        <button class="small-default-button btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleTwo" aria-expanded="false" aria-controls="collapseExampleTwo">
-          POST Create a New User
-        </button>
-      </p>
+<body class="body">
+  <div class="all-content">
+    <div class="background-pages"></div>
+    <div class="items">
+      <br><br>
+      <h1 class="heading">  $ /SWEATHER</h1> 
+      <br><br>
       
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-10">
+            <div class="card text-center">
+              <div class="card card-body">
+                <h4>Demo Instructions:</h4>
+                <p>This demonstration exhibits the functionality of this API with limited endpoints. 
+                  To use this application, please select one of the buttons below. 
+                  A form will open with a dropdown containing some pre-selected queries you may use.
+                  Choose one, hit submit and see the JSON response printed below.
+                  This demo produces examples of the request the application is prepared to handle and both successful and failure responses with status codes.
+                  In the full application, all error handling combinations of missing parameters are dynamically generated and unique to the situation.
+                </p>
+              </div>
+              <div class="card card-body">
+                <p>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    GET Weather for a City
+                  </button>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleTwo" aria-expanded="false" aria-controls="collapseExampleTwo">
+                    POST Create a New User
+                  </button>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleThree" aria-expanded="false" aria-controls="collapseExampleThree">
+                    POST User Login
+                  </button>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleFour" aria-expanded="false" aria-controls="collapseExampleFour">
+                    POST Weather for Roadtrips
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Content -->
       <div class="collapse" id="collapseExample">
-        <div class="align-self-center card card-body">
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Success Request/Response
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>Request: /api/v0/forecast?location=cincinatti,oh</p> 
-                  <p>Response: 
-                  <pre><code>{
-    "data": {
-        "id": null,
-        "type": "forecast",
-        "attributes": {
-            "current_weather": {
-                "last_updated": "2024-07-06 15:15",
-                "temperature": 89.8,
-                "feels_like": 107.2,
-                "humidity": 71,
-                "uvi": 6.0,
-                "visibility": 6.0,
-                "condition": "Partly cloudy",
-                "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png"
-            },
-            "daily_weather": [
-                {
-                    "date": "2024-07-06",
-                    "sunrise": "05:39 AM",
-                    "sunset": "06:24 PM",
-                    "max_temp": 84.7,
-                    "min_temp": 75.3,
-                    "visibility": 6.0,
-                    "condition": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "date": "2024-07-07",
-                    "sunrise": "05:40 AM",
-                    "sunset": "06:24 PM",
-                    "max_temp": 85.9,
-                    "min_temp": 75.6,
-                    "visibility": 6.0,
-                    "condition": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "date": "2024-07-08",
-                    "sunrise": "05:40 AM",
-                    "sunset": "06:24 PM",
-                    "max_temp": 85.2,
-                    "min_temp": 76.3,
-                    "visibility": 6.0,
-                    "condition": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                }
-            ],
-            "hourly_weather": [
-                {
-                    "time": "00:00",
-                    "temperature": 75.6,
-                    "conditions": "Clear ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
-                },
-                {
-                    "time": "01:00",
-                    "temperature": 75.3,
-                    "conditions": "Clear ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
-                },
-                {
-                    "time": "02:00",
-                    "temperature": 75.4,
-                    "conditions": "Partly Cloudy ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png"
-                },
-                {
-                    "time": "03:00",
-                    "temperature": 75.6,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/176.png"
-                },
-                {
-                    "time": "04:00",
-                    "temperature": 76.1,
-                    "conditions": "Partly Cloudy ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png"
-                },
-                {
-                    "time": "05:00",
-                    "temperature": 75.9,
-                    "conditions": "Partly Cloudy ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png"
-                },
-                {
-                    "time": "06:00",
-                    "temperature": 75.7,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "time": "07:00",
-                    "temperature": 77.9,
-                    "conditions": "Sunny",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png"
-                },
-                {
-                    "time": "08:00",
-                    "temperature": 81.4,
-                    "conditions": "Sunny",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png"
-                },
-                {
-                    "time": "09:00",
-                    "temperature": 82.0,
-                    "conditions": "Sunny",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png"
-                },
-                {
-                    "time": "10:00",
-                    "temperature": 82.2,
-                    "conditions": "Sunny",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png"
-                },
-                {
-                    "time": "11:00",
-                    "temperature": 82.5,
-                    "conditions": "Sunny",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png"
-                },
-                {
-                    "time": "12:00",
-                    "temperature": 82.8,
-                    "conditions": "Sunny",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png"
-                },
-                {
-                    "time": "13:00",
-                    "temperature": 83.8,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "time": "14:00",
-                    "temperature": 84.7,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "time": "15:00",
-                    "temperature": 89.8,
-                    "conditions": "Partly cloudy",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png"
-                },
-                {
-                    "time": "16:00",
-                    "temperature": 83.5,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "time": "17:00",
-                    "temperature": 79.5,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "time": "18:00",
-                    "temperature": 79.0,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/day/176.png"
-                },
-                {
-                    "time": "19:00",
-                    "temperature": 78.0,
-                    "conditions": "Clear ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
-                },
-                {
-                    "time": "20:00",
-                    "temperature": 77.6,
-                    "conditions": "Patchy rain nearby",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/176.png"
-                },
-                {
-                    "time": "21:00",
-                    "temperature": 77.6,
-                    "conditions": "Clear ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
-                },
-                {
-                    "time": "22:00",
-                    "temperature": 77.6,
-                    "conditions": "Clear ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
-                },
-                {
-                    "time": "23:00",
-                    "temperature": 77.4,
-                    "conditions": "Clear ",
-                    "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
-                }
-            ]
-        }
-    }
-}</code></pre></p>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :local_query, [
+                      'Cincinatti, OH', 
+                      '(blank)', 
+                      'NotARealCity'
+                    ], { selected: 'Cincinatti, OH' }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseExampleTwo">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :usercreate, [
+                      'Email, Password, and Password Confirmation Present', 
+                      'Email Present, Non-Matching Passwords', 
+                      'Email and Confirmation Present, No Password', 
+                      'All Present, Email Taken'
+                    ], { selected: 'Email, Password, and Password Confirmation Present' }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseExampleThree">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :userlogin, [
+                      'Email and Password Present and Correct', 
+                      'Email Invalid', 
+                      'Password Invalid', 
+                      'Missing Parameters'
+                    ], { selected: "(blank)" }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseExampleFour">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :roadtrip, [
+                      'Austin, Texas to Chicago, Illinois', 
+                      'New York City, New York to Los Angeles, California', 
+                      'Cincinatti to London, UK', 
+                      'New York City, New York to Panama City, Panama',
+                      'Fake Cities',
+                      'Missing Origin',
+                      'No API Key Provided',
+                      'Fake API Key Provided'
+                    ], { selected: "(blank)" }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="card card-body">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <% if params[:local_query].present? %>
+                        <%= params[:local_query] %>
+                      <% elsif params[:roadtrip].present? %>
+                        <h4><%= params[:roadtrip] %></h4>
+                      <% elsif params[:usercreate].present? %>
+                        <h4><%= params[:usercreate] %></h4>
+                      <% elsif params[:userlogin].present? %>
+                        <h4><%= params[:userlogin] %></h4>
+                      <% end %>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <% if params[:local_query].present? %>
+                        <div class="card-body text-white bg-dark">
+                          <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "request") %></code></pre>
+                          <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "response") %></code></pre>
+                        </div>
+                      <% end %>
+
+                      <% if params[:roadtrip].present? %>
+                        <div class="card-body text-white bg-dark">
+                          <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "request") %></code></pre>
+                          <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "response") %></code></pre>
+                        </div>
+                      <% end %>
+
+                      <% if params[:usercreate].present? %>
+                        <div class="card-body text-white bg-dark">
+                          <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "request") %></code></pre>
+                          <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "response") %></code></pre>
+                        </div>
+                      <% end %>
+
+                      <% if params[:userlogin].present? %>
+                        <div class="card-body text-white bg-dark">
+                          <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "request") %></code></pre>
+                          <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "response") %></code></pre>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        Failure Request/Response
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <p>Request: GET /api/v0/forecast?location=pgjergiopergpkg</p>
-        <p>Response: <pre><code>{
-    "errors": [
-        {
-            "detail": "Validation failed: location must be a real place. Try entering location in the format of 'city,co'"
-        }
-    ]
-    }</code></pre></p>
-      </div>
-    </div>
-
-          <div class="collapse" id="collapseExampleTwo">
-        <div class="align-self-center card card-body">
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                  Success Request/Response
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>Request: POST /3000/api/v0/users </p> 
-                  <p>Response: 
-                  <pre><code>{{
-    "data": {
-        "id": "3",
-        "type": "user",
-        "attributes": {
-            "email": "email@examle.com",
-            "api_key": "c66bea6406c1fd1a7e6aa94aed48189c"
-        }
-    }
-  }</code></pre></p>
-      </div>
-    </div>
-    </div>
-    </div>
-
-
-      </div>
-    </div>
-  </body>
-</html>
+ 
