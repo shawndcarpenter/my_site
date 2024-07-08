@@ -1,0 +1,199 @@
+<body class="body">
+  <div class="all-content">
+    <div class="background-pages"></div>
+    <div class="items">
+      <br><br>
+      <h1 class="heading">  $ /SWEATHER</h1> 
+      <br><br>
+      
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-10">
+            <div class="card text-center">
+              <div class="card card-body">
+                <h4>Sweater Weather Demo Instructions:</h4>
+                <p>This demonstration exhibits the functionality of this API with limited endpoints. 
+                  To use this application, please select one of the buttons below. 
+                  A form will open with a dropdown containing some pre-selected queries you may use.
+                  Choose one, hit submit and see the JSON response printed below.
+                  This demo produces examples of the request the application is prepared to handle and both successful and failure responses with status codes.
+                  In the full application, all error handling combinations of missing parameters are dynamically generated and unique to the situation.
+                </p>
+              </div>
+              <div class="card card-body">
+                <p>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    GET Weather for a City
+                  </button>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleTwo" aria-expanded="false" aria-controls="collapseExampleTwo">
+                    POST Create a New User
+                  </button>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleThree" aria-expanded="false" aria-controls="collapseExampleThree">
+                    POST User Login
+                  </button>
+                  <button class="small-default-button btn-primary btn-sm me-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleFour" aria-expanded="false" aria-controls="collapseExampleFour">
+                    POST Weather for Roadtrips
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Content -->
+      <div class="collapse" id="collapseExample">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :local_query, [
+                      'Cincinatti, OH', 
+                      '(blank)', 
+                      'NotARealCity'
+                    ], { selected: 'Cincinatti, OH' }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseExampleTwo">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :usercreate, [
+                      'Email, Password, and Password Confirmation Present', 
+                      'Email Present, Non-Matching Passwords', 
+                      'Email and Confirmation Present, No Password', 
+                      'All Present, Email Taken'
+                    ], { selected: 'Email, Password, and Password Confirmation Present' }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseExampleThree">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :userlogin, [
+                      'Email and Password Present and Correct', 
+                      'Email Invalid', 
+                      'Password Invalid', 
+                      'Missing Parameters'
+                    ], { selected: "(blank)" }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseExampleFour">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-body">
+                  <%= form_with url: "/sweather/demo", method: "get", local: true do |form| %>
+                    <%= form.select :roadtrip, [
+                      'Austin, Texas to Chicago, Illinois', 
+                      'New York City, New York to Los Angeles, California', 
+                      'Cincinatti to London, UK', 
+                      'New York City, New York to Panama City, Panama',
+                      'Fake Cities',
+                      'Missing Origin',
+                      'No API Key Provided',
+                      'Fake API Key Provided'
+                    ], { selected: "(blank)" }, 
+                    { class: 'form-select' } %><br>
+                    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% if params[:local_query] || params[:road_trip] || params[:usercreate] || params[:userlogin] %>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="card card-body">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <% if params[:local_query].present? %>
+                          <h5><%= params[:local_query] %></h5>
+                        <% elsif params[:roadtrip].present? %>
+                          <h5><%= params[:roadtrip] %></h5>
+                        <% elsif params[:usercreate].present? %>
+                          <h5><%= params[:usercreate] %></h5>
+                        <% elsif params[:userlogin].present? %>
+                          <h5><%= params[:userlogin] %></h5>
+                        <% end %>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <% if params[:local_query].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("local_weather_calls", params[:local_query], "response") %></code></pre>
+                          </div>
+                        <% end %>
+
+                        <% if params[:roadtrip].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("roadtrip_calls", params[:roadtrip], "response") %></code></pre>
+                          </div>
+                        <% end %>
+
+                        <% if params[:usercreate].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("user_create_calls", params[:usercreate], "response") %></code></pre>
+                          </div>
+                        <% end %>
+
+                        <% if params[:userlogin].present? %>
+                          <div class="card-body text-white bg-dark">
+                            <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "request") %></code></pre>
+                            <pre><code><%= render_sweather_partials("login_calls", params[:userlogin], "response") %></code></pre>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+ 

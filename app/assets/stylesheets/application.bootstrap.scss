@@ -72,7 +72,6 @@ overflow: hidden;
 // background-size: 100% 100%;
 position: absolute;
 // overflow: hidden;
-attachment: fixed;
 top: 0;
 left: 0;
 right: 0;
@@ -92,7 +91,7 @@ z-index: 1;
   left: 0;
   right: 0;
   bottom: 0;
-  background: asset-url('bg.png') no-repeat center center;
+  background: asset-url('bg.png') no-repeat center bottom;
   background-size: cover;
 /* filter: brightness(0.40); */
   z-index: 1;

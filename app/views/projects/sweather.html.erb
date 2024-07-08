@@ -1,0 +1,34 @@
+<html lang="en">
+  <body>
+    <div class="all-content">
+      <div class="background-pages"></div>
+        <div class="items">
+        <br>
+        <br>
+        <h1 class="heading">  $ /SWEATHER</h1> 
+        <div class="container">
+          <div class="card" style="max-width: 50rem;">
+          <%= image_tag("card_sw.png", class: "card-img-top", alt: "sweater weather api call") %>
+            <div class="card-body">
+              <h5 class="subheader"><b>About</b></h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p>Sweater Weather was a solo project: a JSON:API-compliant RESTful API providing current, hourly, and daily weather data accessible via a unique API key through endpoints such as /forecast for single location queries or /road_trip for estimated time of arrival weather forecasts along a route.</p>
+                  <p>As an <b>API-Only</b> application, its design is quite limited. I have created a demonstration which shows the functionality both as an API and the possibilities for use in a full-stack application.</p>
+                  <p>This application made multiple external API calls. To avoid bad actors (and not make you sign up for the external API), this is now only running a simulation as to what to expect from the full application.</p>
+                 </li>
+                <li class="list-group-item"><%= link_to "demo", sweather_demo_path %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </body>
+</html>
+
+    
